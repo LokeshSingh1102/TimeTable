@@ -1,0 +1,9 @@
+<?php
+session_start();
+$servername="localhost";
+$username="root";
+$password="";
+$database="routine_maker";
+$conn=mysqli_connect($servername,$username,$password,$database);
+date_default_timezone_set("Asia/Kolkata");
+?>
