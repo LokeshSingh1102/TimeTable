@@ -15,6 +15,8 @@ const data = [
         "totalClass": 4
     }
 ]
+
+
 let rowNo = 0;
 let colomnNo = 0;
 let i = 0;
