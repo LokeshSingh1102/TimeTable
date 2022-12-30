@@ -13,6 +13,11 @@ const data = [
         "subjectName": "anime",
         "teacherName": "kishimoto",
         "totalClass": 4
+    },
+    {
+        "subjectName": "php",
+        "teacherName": "harry",
+        "totalClass": 3
     }
 ]
 
@@ -37,9 +42,9 @@ let storeData = () => {
     data.push(store);
     console.log("after");
     console.log(data);
-    
+
     const data = JSON.stringify(data)
-    
+
     fs.writeFileSync("./json.json", data, err => {
         if (err) {
             console.log("Error writing file", err)
@@ -78,15 +83,17 @@ const createTable = () => {
                 rowNo = (rowNo + 1) % 6;
             }
             else {
-                if (matrix[rowNo][colomnNo] == 1) {
-                    for (let j = 0; j < matrix[rowNo].length; j++) {
-                        if (matrix[rowNo][j] == 0) {
+                if (matrix[rowNo][colomnNo] >= 0) {
+                    let j;
+                    for (j = 0; j < matrix[rowNo].length; j++) {
+                        if (matrix[rowNo][j] == -1) {
                             matrix[rowNo][j] = i;
                             totalclass--
                             break;
                         }
                     }
                     rowNo = (rowNo + 1) % 6;
+                    colomnNo = (j + 1) % 4
 
                 }
                 else {
