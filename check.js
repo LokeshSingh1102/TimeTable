@@ -1,20 +1,48 @@
-const data = [
-    {
-        "subjectName": "c",
-        "teacherName": "skg",
-        "totalClass": 4
-    },
-    {
-        "subjectName": "java",
-        "teacherName": "subhajit",
-        "totalClass": 4
-    },
-    {
-        "subjectName": "anime",
-        "teacherName": "kishimoto",
-        "totalClass": 4
-    }
-]
+async function postData(url = '', data = {}) {
+    // *starred options in comments are default values
+    const response = await fetch(
+        url,
+        {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "same-origin", // no-cors, *cors, same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",  // sent request
+                // "Accept": "application/json"   // expected data sent back
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        },
+    );
+
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
+const data =
+{
+    'subjectName': "c",
+    'teacherName': "skg",
+    'totalClass': 4
+}
+
+// const data = {
+//     'key1': 'value1',
+//     'key2': 2
+// };
+
+postData('http://localhost/TimeTable/Backend/new.php', JSON.stringify(data))
+    .then(response => {
+        // Manipulate response here
+        console.log("response: ", response); // JSON data parsed by `data.json()` call
+        // In this case where I send entire $decoded from PHP you could arbitrarily use this
+        console.log("response.data: ", JSON.parse(response.data));
+        if(response.value==1){
+            alert('success');
+        }
+    });
+
 let rowNo = 0;
 let colomnNo = 0;
 let i = 0;
@@ -35,9 +63,9 @@ let storeData = () => {
     data.push(store);
     console.log("after");
     console.log(data);
-    
+
     const data = JSON.stringify(data)
-    
+
     fs.writeFileSync("./json.json", data, err => {
         if (err) {
             console.log("Error writing file", err)

@@ -2,14 +2,48 @@
 include("config.php");
 // echo "<pre>";
 // print_r($_POST);
-$uid=$_POST["uid"];
-$password=$_POST["password"];
-$stream=$_POST["stream"];
-$semester=$_POST["semester"];
+// $uid=$_POST["uid"];
+// $password=$_POST["password"];
+// $stream=$_POST["stream"];
+// $semester=$_POST["semester"];
 $status=0;
 $mssg="";
 
-$sel="SELECT *FROM teacher WHERE uid='$uid'";
+// $contentType = isset($_SERVER["CONTENT_TYPE"])? trim($_SERVER["CONTENT_TYPE"]):'';
+$contentType = trim($_SERVER["CONTENT_TYPE"] ?? '');
+
+if($contentType!=='application/json'){
+	die(json_encode([
+		'value'=>0,
+		'error'=>'content type is not set as',
+		'data'=>null
+	]));
+};
+
+$content = trim(file_get_contents("php://input"));
+
+$decoded = json_decode($content,true);
+
+if(!is_array($decoded)){
+	die(json_encode([
+		'value'=>0,
+		'error'=>'Received JSON is improperly formatted',
+		'data'=>null
+	]));
+};
+
+$response = $decoded["subjectName"];
+echo $response;
+if($response){
+	die(json_encode([
+		'value'=>1,
+		'error'=>null,
+		'data'=>$response
+	]));
+}
+
+
+$sel="SELECT * FROM teacher WHERE uid='$uid'";
 $qr1=mysqli_query($conn,$sel);
 $nr=mysqli_num_rows($qr1);
 if($nr){
