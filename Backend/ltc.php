@@ -43,7 +43,7 @@ if($response){
 }
 
 
-$sel="SELECT *FROM teacher WHERE uid='$uid'";
+$sel="SELECT * FROM teacher WHERE uid='$uid'";
 $qr1=mysqli_query($conn,$sel);
 $nr=mysqli_num_rows($qr1);
 if($nr){

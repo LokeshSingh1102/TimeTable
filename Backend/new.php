@@ -1,4 +1,19 @@
 <?php
+// include("config.php");
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $database =  "routine maker";
+
+// // Creating a connection
+// $conn = mysqli_connect($servername, $username, $password, $database);
+// // Die if connection was not successfull
+// if(!$conn){
+//     die("Sorry we failed to connect: ". mysqli_connect_error());
+// }else{
+//     echo '<script>alert("Connection was successful");</script>';
+// }
+
 // $contentType = trim($_SERVER["CONTENT_TYPE"] ?? ''); // PHP 8+
 // echo `$_SERVER["CONTENT_TYPE"]`;
 // Otherwise:
@@ -31,37 +46,19 @@ $decoded = json_decode($decoded, true);
 
 /* Do something with received data and include it in response */
 // dumb e.g.
-$response = $decoded['totalClass']+1 ; // 3
-
-/* Perhaps database manipulation here? */
-// query, etc.
+$response = $decoded['totalClass']+1 ; // 5
 
 /* Send success to fetch API */
 die(json_encode([
   'value' => 1,
   'error' => null,
-  'data' => null, // or ?array of data ($response) you wish to send back to JS
+  'data' => $response, // or ?array of data ($response) you wish to send back to JS
 ]));
 
-// if ($contentType === "application/json") {
-// 	//Receive the RAW post data.
-// 	$content = trim(file_get_contents("php://input"));
-  
-// 	$decoded = json_decode($content, true);
-  
-// 	//If json_decode failed, the JSON is invalid.
-// 	if(! is_array($decoded)) {
-// 		die(json_encode([
-// 			    'value' => 0,
-// 			    'error' => 'Received JSON is improperly formatted',
-// 			    'data' => null,
-// 			  ]));
-// 	} else {
-// 		die(json_encode([
-// 			  'value' => 1,
-// 			  'error' => null,
-// 			  'data' => null, // or ?array of data ($response) you wish to send back to JS
-// 		]));
-// 	}
-//   }
+$sql = 'INSERT INTO check (teacherName, subject , class) VALUES ("skg", "Doe", 4)';
+if ($conn->query($sql) === TRUE) {
+  // echo "New record created successfully";
+} else {
+  // echo "Error: " . $sql . "<br>" . $conn->error;
+}
 ?>
