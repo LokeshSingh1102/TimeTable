@@ -1,13 +1,16 @@
 <?php
-include('config.php');
-$sql = 'INSERT INTO check (
-  teacherName, subject , class) VALUES ("skg", "Doe", 4)';
+$conn = mysqli_connect("localhost", "root", "", "routine maker");
 
-if (mysqli_query($conn, $sql)) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
 
+$teacher = $_POST['Teacher'];
+$Subject = $_POST['Subject'];
+$Class = $_POST['Classes'];
+$Semester = $_POST['Semester'];
+$Section = $_POST['Section'];
+echo $teacher, $Subject, $Class;
+
+$sql = "INSERT INTO teacher (teacherName, subject , class) VALUES ('$teacher','$Subject','$Class')";
+mysqli_query($conn, $sql);
 mysqli_close($conn);
+
 ?>

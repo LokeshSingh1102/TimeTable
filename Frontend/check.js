@@ -1,47 +1,27 @@
-async function postData(url = '', data = {}) {
-    // *starred options in comments are default values
-    const response = await fetch(
-        url,
-        {
-            method: "POST", // *GET, POST, PUT, DELETE, etc.
-            mode: "same-origin", // no-cors, *cors, same-origin
-            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: "same-origin", // include, *same-origin, omit
-            headers: {
-                "Content-Type": "application/json",  // sent request
-                // "Accept": "application/json"   // expected data sent back
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify(data), // body data type must match "Content-Type" header
-        },
-    );
+console.log("first");
 
-    return response.json(); // parses JSON response into native JavaScript objects
-}
-
-const data =
-{
-    'subjectName': "c",
-    'teacherName': "skg",
-    'totalClass': 4
-}
-
-// const data = {
-//     'key1': 'value1',
-//     'key2': 2
-// };
-
-postData('http://localhost/TimeTable/Backend/new.php', JSON.stringify(data))
-    .then(response => {
-        // Manipulate response here
-        console.log("response: ", response); // JSON data parsed by `data.json()` call
-        // In this case where I send entire $decoded from PHP you could arbitrarily use this
-        console.log("response.data: ", JSON.parse(response.data));
-        if(response.value==1){
-            alert('success');
-        }
-    });
+let data =[
+    {
+        'teacherName':'skg',
+        'subjectName':'c',
+        'totalClass':4
+    },
+    {
+        'teacherName':'skg',
+        'subjectName':'php',
+        'totalClass':4
+    },
+    {
+        'teacherName':'skg',
+        'subjectName':'js',
+        'totalClass':4
+    },
+    {
+        'teacherName':'skg',
+        'subjectName':'react',
+        'totalClass':4
+    },
+]
 
 let rowNo = 0;
 let colomnNo = 0;
@@ -91,6 +71,7 @@ const matrix = [
 
 
 const createTable = () => {
+    console.log('hello');
     // let rowCount = 0;
     let rowUpdate = (1 + rowNo + 2) % 6
     let colomnUpdate = (colomnNo) % 4
@@ -104,9 +85,9 @@ const createTable = () => {
                 rowNo = (rowNo + 1) % 6;
             }
             else {
-                if (matrix[rowNo][colomnNo] == 1) {
+                if (matrix[rowNo][colomnNo] >= 0) {
                     for (let j = 0; j < matrix[rowNo].length; j++) {
-                        if (matrix[rowNo][j] == 0) {
+                        if (matrix[rowNo][j] == -1) {
                             matrix[rowNo][j] = i;
                             totalclass--
                             break;
