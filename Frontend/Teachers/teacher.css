@@ -1,0 +1,13 @@
+.plusIcon {
+    height: 50px;
+    width: 50px;
+    padding: 5px 10px;
+    font-size: 30px;
+    /* border: 2px solid black; */
+    margin: 0 5px;
+    cursor: pointer;
+    color: #066cd5;
+}
+.btn{
+    margin-bottom: 13px;
+}
