@@ -1,50 +1,59 @@
-console.log("js is here");
+console.log('ajax');
 
-const checkrow = (arr, i)=> {
-    for(let j = 0;j<checkarr[i].length;j++){
-        if(checkarr[i][j].name==arr.name&& checkarr[i][j].subject==arr.subject){
-            return false
+document.getElementById('myForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+})
+
+$(document).ready(function () {
+    console.log('ready');
+    let arr = [];
+    let storeArr = ["Teacher", "Subject", "Classes", "Semester", "Section"];
+    $('.plusIcon').click(function () {
+        let store = {
+            "Teacher": "",
+            "Subject": "",
+            "Classes": 0,
+            "Semester": 0,
+            "Section": "",
         }
-    }
-    return true;
-}
+        console.log('plusIcon');
+        let i = 0;
+        $('.input').each(function () {
+            store[storeArr[i++]] = $(`.inputVal${i}`).val();
+            // console.log(arr[i-1]);
+        })
+        console.log(store);
+        arr.push(store);
+        console.log(arr);
+        $('#Teacher').val('');
+        $('#Subject').val('');
+        $('#Classes').val('');
+        $('#Semester').val('');
+        $('#Section').val('');
+        i = 0;
+    })
+    $('#myForm').submit(function () {
+        console.log(arr);
 
-const inputarr = [
-    { name: "lokesh", subject: "c", number: 2 }
-    , { name: "huku", subject: "c", number: 2 }
-    , { name: "titu", subject: "c", number: 2 }
-    , { name: "ritu", subject: "c", number: 2 }
-];
-
-let totalTeacher = 4;
-let checkarr = [
-    [{ name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }],
-    [{ name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }],
-    [{ name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }],
-    [{ name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }],
-    [{ name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }],
-    [{ name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }, { name: "", subject: "" }],
-]
-
-let n = 0;
-for (let i = 0; i < 6; i++) {
-    for (let j = 0; j < 4; j++) {
-        
-        if (checkrow(inputarr[n], i)){
-
-        }
-    }
-}
-
-// console.log(checkarr[0][1].name);
-
-const box = document.getElementsByClassName("box");
-Array.from(box).forEach((element) => {
-    console.log(element.innerText);
-    element.addEventListener('click', () => {
-        let textEdit = document.querySelector('.text-edit');
-        // console.log(textEdit);
-        console.log(textEdit.innerText);
-        // console.log(textEdit.target.innerText);
+        console.log('submit');
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost/TimeTable/Backend/storeData.php',
+            data: {
+                Teacher: $('#Teacher').val(),
+                Subject: $('#Subject').val(),
+                Classes: $('#Classes').val(),
+                Semester: $('#Semester').val(),
+                Section: $('#Section').val()
+            },
+            success: function (data) {
+                $('#output').html(data);
+            }
+        })
+        $('#Teacher').val('');
+        $('#Subject').val('');
+        $('#Classes').val('');
+        $('#Semester').val('');
+        $('#Section').val('');
     })
 })
