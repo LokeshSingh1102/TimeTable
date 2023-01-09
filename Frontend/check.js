@@ -1,65 +1,7 @@
 console.log("first");
 
-let data =[
-    {
-        'teacherName':'skg',
-        'subjectName':'c',
-        'totalClass':4
-    },
-    {
-        'teacherName':'skg',
-        'subjectName':'php',
-        'totalClass':4
-    },
-    {
-        'teacherName':'skg',
-        'subjectName':'js',
-        'totalClass':4
-    },
-    {
-        'teacherName':'skg',
-        'subjectName':'react',
-        'totalClass':4
-    },
-]
-
-let rowNo = 0;
-let colomnNo = 0;
-let i = 0;
 console.log("hello");
-// const data = []
-let storeData = () => {
-    console.log("before");
-    // e.preventDefault();
-    const Tname = document.getElementById('Teacher').value;
-    const Sname = document.getElementById('Subject').value;
-    const classes = document.getElementById('Classes').value;
-    const store = {
-        "subjectName": Sname,
-        "teacherName": Tname,
-        "totalClass": classes
-    }
-    console.log("before");
-    data.push(store);
-    console.log("after");
-    console.log(data);
 
-    const data = JSON.stringify(data)
-
-    fs.writeFileSync("./json.json", data, err => {
-        if (err) {
-            console.log("Error writing file", err)
-        } else {
-            console.log('JSON data is written to the file successfully')
-        }
-    })
-
-    document.getElementById('Teacher').value = "";
-    document.getElementById('Subject').value = "";
-    document.getElementById('Classes').value = "";
-    document.getElementById('Semester').value = "";
-    document.getElementById('Section').value = "";
-}
 const matrix = [
     [-1, -1, -1, -1],
     [-1, -1, -1, -1],
@@ -69,83 +11,88 @@ const matrix = [
     [-1, -1, -1, -1]
 ]
 
+fetch('http://localhost/TimeTable/Backend/fetchData.php').then((response) =>
+    response.json()).then((result) => {
+        // for (let g = 0; g < result.length; g++) {
+        //     data.push(result[g]);
+        // }
+        console.log(result)
 
-const createTable = () => {
-    console.log('hello');
-    // let rowCount = 0;
-    let rowUpdate = (1 + rowNo + 2) % 6
-    let colomnUpdate = (colomnNo) % 4
-
-    let totalclass = 0;
-    while (i < data.length) {
-        // totalclass = data[i].totalClass;
-        // let j = 0;
-        for (totalclass = data[i].totalClass; totalclass > 0;) {
-            if (1 in matrix[rowNo] && checkRow()) {
-                rowNo = (rowNo + 1) % 6;
-            }
-            else {
-                if (matrix[rowNo][colomnNo] >= 0) {
-                    for (let j = 0; j < matrix[rowNo].length; j++) {
-                        if (matrix[rowNo][j] == -1) {
-                            matrix[rowNo][j] = i;
-                            totalclass--
-                            break;
-                        }
-                    }
-                    rowNo = (rowNo + 1) % 6;
-
+        const checkRow = () => {
+            for (let i = 0; i < matrix.length;) {
+                if (1 in matrix[i]) {
+                    i = i + 1;
                 }
                 else {
-                    matrix[rowNo][colomnNo] = i;
-                    rowNo = (1 + rowNo) % 6
-                    colomnNo = (colomnNo + 1) % 4
-                    totalclass--
+
+                    return true;
                 }
             }
+            return false;
         }
-        i++;
-    }
-}
+        let rowNo = 0;
+        let colomnNo = 0;
+        let i = 0;
 
-const checkRow = () => {
-    for (let i = 0; i < matrix.length;) {
-        if (1 in matrix[i]) {
-            i = i + 1;
-        }
-        else {
+        console.log('createTable');
+        // let rowCount = 0;
+        let rowUpdate = (1 + rowNo + 2) % 6
+        let colomnUpdate = (colomnNo) % 4
 
-            return true;
-        }
-    }
-    return false;
-}
+        let totalclass = 0;
+        while (i < result.length) {
 
-createTable()
-// for (var i = 0; i < matrix.length; i++) {
-//     for (var j = 0; j < matrix[i].length; j++) {
-//         console.log(matrix[i][j] + " ");
-//     }
-//     console.log(`\n`);
-// } 
-// console.log("inside ");
-let c = 0, r = 0;
-Array.from(document.getElementsByClassName('Tdata')).forEach((element) => {
-    // console.log(i);
-    if (matrix[r][c] == -1) {
-        // console.log("hekllo");
-        element.innerHTML = "";
-        c = (c + 1) % 4;
-        if (c == 0) {
-            r = r + 1;
+            console.log("heer");
+            // totalclass = data[i].totalClass;
+            // let j = 0;
+            // console.log(result[i].Classes);
+            for (totalclass = result[i].Classes; totalclass > 0;) {
+                if (1 in matrix[rowNo] && checkRow()) {
+                    rowNo = (rowNo + 1) % 6;
+                }
+                else {
+                    if (matrix[rowNo][colomnNo] >= 0) {
+                        for (let j = 0; j < matrix[rowNo].length; j++) {
+                            if (matrix[rowNo][j] == -1) {
+                                matrix[rowNo][j] = i;
+                                totalclass--
+                                break;
+                            }
+                        }
+                        rowNo = (rowNo + 1) % 6;
+
+                    }
+                    else {
+                        matrix[rowNo][colomnNo] = i;
+                        rowNo = (1 + rowNo) % 6
+                        colomnNo = (colomnNo + 1) % 4
+                        totalclass--
+                    }
+                }
+            }
+            i++;
         }
-    }
-    else {
-        // console.log(matrix[r][c]);
-        element.innerHTML = data[matrix[r][c]].subjectName;
-        c = (c + 1) % 4;
-        if (c == 0) {
-            r = r + 1;
-        }
-    }
-})
+
+        let c = 0, r = 0;
+        Array.from(document.getElementsByClassName('Tdata')).forEach((element) => {
+            // console.log(i);
+            if (matrix[r][c] == -1) {
+                // console.log("hekllo");
+                element.innerHTML = "";
+                c = (c + 1) % 4;
+                if (c == 0) {
+                    r = r + 1;
+                }
+            }
+            else {
+                // console.log(matrix[r][c]);
+                element.innerHTML = result[matrix[r][c]].Subject;
+                c = (c + 1) % 4;
+                if (c == 0) {
+                    r = r + 1;
+                }
+            }
+        })
+        // createTable();
+    });
+
