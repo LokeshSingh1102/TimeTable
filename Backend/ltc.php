@@ -2,14 +2,14 @@
 include("config.php");
 // echo "<pre>";
 // print_r($_POST);
-$uid=$_POST["uid"];
-$password=$_POST["password"];
-$stream=$_POST["stream"];
-$semester=$_POST["semester"];
+// $uid=$_POST["uid"];
+// $password=$_POST["password"];
+// $stream=$_POST["stream"];
+// $semester=$_POST["semester"];
 $status=0;
 $mssg="";
 
-$sel="SELECT *FROM teacher WHERE uid='$uid'";
+$sel="SELECT * FROM teacher WHERE uid='$uid'";
 $qr1=mysqli_query($conn,$sel);
 $nr=mysqli_num_rows($qr1);
 if($nr){
