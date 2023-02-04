@@ -10,6 +10,15 @@ const matrix = [
     [-1, -1, -1, -1],
     [-1, -1, -1, -1]
 ]
+const checkPeriod = []
+fetch('http://localhost/TimeTable/Backend/checkPeriod.php').then((response) =>
+    response.json()).then((result) => {
+        console.log("checkPeriod");
+        for (let i = 0; i < result.length; i++) {
+            checkPeriod.push(result[i])
+        }
+        console.log(checkPeriod);
+    })
 
 fetch('http://localhost/TimeTable/Backend/fetchData.php').then((response) =>
     response.json()).then((result) => {
@@ -24,7 +33,6 @@ fetch('http://localhost/TimeTable/Backend/fetchData.php').then((response) =>
                     i = i + 1;
                 }
                 else {
-
                     return true;
                 }
             }
@@ -42,25 +50,41 @@ fetch('http://localhost/TimeTable/Backend/fetchData.php').then((response) =>
         let totalclass = 0;
         while (i < result.length) {
 
-            console.log("heer");
-            // totalclass = data[i].totalClass;
-            // let j = 0;
-            // console.log(result[i].Classes);
             for (totalclass = result[i].Classes; totalclass > 0;) {
+
                 if (1 in matrix[rowNo] && checkRow()) {
                     rowNo = (rowNo + 1) % 6;
                 }
                 else {
+
+                    let pe = []
+                    let j = 0
+                    let per = checkPeriod.filter((p) => {
+                        if (p.teacherName == result[i].Teacher) {
+                            console.log("inside");
+                            pe[j] = Number(p.period)
+                            j++
+                            return p
+                        }
+                    })
+                    // console.log("koko0", pe);
+
                     if (matrix[rowNo][colomnNo] >= 0) {
+                        // console.log("huhu",period);
+                        // if()
                         for (let j = 0; j < matrix[rowNo].length; j++) {
-                            if (matrix[rowNo][j] == -1) {
+                            if (matrix[rowNo][j] == -1 && pe.length == 0) {
+                                matrix[rowNo][j] = i;
+                                totalclass--
+                                break;
+                            }
+                            else if (!(j in pe && rowNo == 0) && matrix[rowNo][j] == -1) {
                                 matrix[rowNo][j] = i;
                                 totalclass--
                                 break;
                             }
                         }
                         rowNo = (rowNo + 1) % 6;
-
                     }
                     else {
                         matrix[rowNo][colomnNo] = i;
