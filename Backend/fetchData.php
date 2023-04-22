@@ -20,5 +20,6 @@ if($nr){
 
 
 echo json_encode($data);
-
+$del = "DELETE FROM teacher";
+$qr2 = mysqli_query($conn,$del);
 ?>
