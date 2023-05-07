@@ -2,10 +2,10 @@
 include("config.php");
 // echo "<pre>";
 // print_r($_POST);
-// $uid=$_POST["uid"];
-// $password=$_POST["password"];
-// $stream=$_POST["stream"];
-// $semester=$_POST["semester"];
+$uid=$_POST["uid"];
+$password=$_POST["password"];
+$stream=$_POST["stream"];
+$semester=$_POST["semester"];
 $status=0;
 $mssg="";
 
