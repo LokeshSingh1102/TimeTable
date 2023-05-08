@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teachers Login</title>
+    <title>Student Login</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
@@ -122,14 +122,14 @@
 <body>
 
 
-    <form method="post" action="post.html" onsubmit="return validate();">
+    <form method="post" action="../../Backend/lsc.php" onsubmit="return validate();">
         <!-- <h3>Login</h3> -->
         <p>
             Your name: <br /><input type="text" placeholder="Enter your full name" required />
         </p>
         <p>
             UID:*<br />
-            <input type="text" placeholder="Enter your user ID" required />
+            <input type="number" placeholder="Enter your user ID" name="uid" id="uid" required />
         </p>
         <p>
             Password:* <br /><input type="password" name="password" id="password" required />
