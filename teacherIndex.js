@@ -34,7 +34,7 @@ $(document).ready(function () {
     })
     $('#myForm').submit(function () {
         console.log(arr);
-
+        console.log();
         console.log('submit');
         $.ajax({
             type: 'POST',
@@ -43,8 +43,9 @@ $(document).ready(function () {
                 Teacher: $('#Teacher').val(),
                 Subject: $('#Subject').val(),
                 Classes: $('#Classes').val(),
-                Semester: $('#Semester').val(),
-                Section: $('#Section').val()
+                Dept: sessionStorage.getItem("Department"),
+                Semester: sessionStorage.getItem("Semester"),
+                Section: sessionStorage.getItem("Section"),
             },
             success: function (data) {
                 $('#output').html(data);
