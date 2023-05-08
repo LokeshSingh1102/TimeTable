@@ -2,7 +2,7 @@ console.log("first");
 
 console.log("hello");
 
-const matrix = [
+let matrix = [
     [-1, -1, -1, -1],
     [-1, -1, -1, -1],
     [-1, -1, -1, -1],
@@ -16,10 +16,9 @@ const saveTeacher = [];
 const day = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
 async function periodCheck(d, teacherName, period) {
-    // var checkPeriod = ""
-    console.log("d", d);
-    console.log("teacherName", teacherName);
-    console.log("period", period);
+    // console.log("d", d);
+    // console.log("teacherName", teacherName);
+    // console.log("period", period);
 
     checkPeriod = await $.post("http://localhost/TimeTable/Backend/checkPeriod.php",
         {
@@ -27,14 +26,7 @@ async function periodCheck(d, teacherName, period) {
             Day: day[d],
             Period: period,
         },
-        // function (data, status) {
-        //     if (data === "true") {
-        //         console.log(data);
-        //     }
-        // }
     );
-    console.log("data", checkPeriod);
-
     return checkPeriod
 }
 
@@ -42,7 +34,7 @@ function main() {
     fetch('http://localhost/TimeTable/Backend/fetchData.php').then((response) =>
         response.json()).then(async (result) => {
 
-            console.log(result)
+            // console.log(result)
 
             const checkRow = () => {
                 for (let i = 0; i < matrix.length;) {
@@ -58,15 +50,13 @@ function main() {
 
             let i = 0;
 
-            console.log('createTable');
-
             let totalclass = 0;
+            let totalTeacher = result.length<=4?result.length:4;
+
             while (i < result.length) {
                 let rowNo = 0;
-
+                let colomnNo = 0;
                 for (totalclass = result[i].Classes; totalclass > 0;) {
-
-                    let colomnNo = 0;
 
                     if (1 in matrix[rowNo] && checkRow()) {
                         rowNo = (rowNo + 1) % 6;
@@ -80,17 +70,20 @@ function main() {
                                 // console.log("first", resu);
                                 if (matrix[rowNo][j] == -1 && resu === "false") {
                                     matrix[rowNo][j] = i;
+                                    colomnNo = j;
                                     totalclass--
                                     break;
                                 }
                             }
                             rowNo = (rowNo + 1) % 6;
+                            colomnNo = (colomnNo + 1) % totalTeacher
                         }
                         else {
                             if (await periodCheck(rowNo, result[i].Teacher, colomnNo+1) === "false") {
                                 // console.log("second",colomnNo+1);
                                 matrix[rowNo][colomnNo] = i;
-                                colomnNo = (colomnNo + 1) % 4
+                                // colomnNo = j;
+                                // colomnNo = (colomnNo + 1) % totalTeacher
                                 totalclass--
                             }
                             else {
@@ -100,12 +93,14 @@ function main() {
                                     if (matrix[rowNo][j] == -1 && resu === "false") {
                                         // console.log("checkingggg",i,j);
                                         matrix[rowNo][j] = i;
+                                        colomnNo = j;
                                         totalclass--
                                         break;
                                     }
                                 }
                             }
                             rowNo = (rowNo + 1) % 6;
+                            colomnNo = (colomnNo + 1) % totalTeacher
                         }
                     }
                 }
@@ -123,7 +118,7 @@ function main() {
                 }
                 else {
                     element.innerHTML = result[matrix[r][c]].Subject;
-                    saveTeacher.push({ "teacher": result[matrix[r][c]].Teacher, "subject": result[matrix[r][c]].Subject, "period": c + 1,"d":r, "semester": 6, "section": "B" })
+                    saveTeacher.push({ "teacher": result[matrix[r][c]].Teacher, "subject": result[matrix[r][c]].Subject, "period": c + 1,"d":r, "semester": 6, "section": "B","dept":"BCA" })
                     c = (c + 1) % 4;
                     if (c == 0) {
                         r = r + 1;
@@ -144,11 +139,12 @@ $(".save").click(function () {
                 Period: saveTeacher[i].period,
                 Semester: saveTeacher[i].semester,
                 Section: saveTeacher[i].section,
+                Dept: saveTeacher[i].dept,
                 Day: day[saveTeacher[i].d]
             },
-            success: function (data) {
-                $('#output').html(data);
-            }
+            // success: function (data) {
+            //     $('#output').html(data);
+            // }
         })
     }
 })
