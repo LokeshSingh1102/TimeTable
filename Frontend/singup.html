@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../style.css">
-    <title>Teachers Login</title>
+    <title>Sign Up Page</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
@@ -15,15 +14,20 @@
             box-sizing: border-box;
             color: white;
         }
+
         body {
             margin: 0px;
-            /* background: #080710; */
+            background: #080710;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
+
+
+
         nav {
             background-color: #333;
             overflow: hidden;
         }
+
         nav a {
             text-decoration: none;
             padding: 20px;
@@ -31,9 +35,10 @@
             float: right;
             color: white;
         }
+
         form {
-            height: 580px;
-            width: 400px;
+            height: 471px;
+            width: 381px;
             background-color: rgba(255, 255, 255, 0.13);
             position: absolute;
             transform: translate(-50%, -50%);
@@ -53,18 +58,21 @@
             outline: none;
             border: none;
         }
+
         form h3 {
             font-size: 32px;
             font-weight: 500;
             line-height: 12px;
             text-align: center;
         }
+
         p {
             display: block;
             margin-top: 10px;
             font-size: 16px;
             font-weight: 300;
         }
+
         textarea,
         input {
             display: block;
@@ -77,14 +85,16 @@
             font-size: 18px;
             font-weight: 300;
         }
+
         ::textarea,
         ::placeholder {
             color: #e5e5e5;
         }
+
         button {
             align-items: center;
             margin-top: 10px;
-            width: 30%;
+            width: 140%;
             background-color: #f6e8df;
             color: #080710;
             padding: 15px 0;
@@ -93,6 +103,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         button:active {
             transform: translateY(4px) translateX(4px);
         }
@@ -111,52 +122,43 @@
             transform: translate(-50%, -50%);
             width: 550px;
         }
+
         .container ul {
             list-style: none;
         }
+
         .pre {
             padding-top: 46%;
             padding-left: 80%;
         }
     </style>
+
 </head>
 
 <body>
-    <!-- <form method="post" action="http://localhost/project/TimeTable/Backend/ltc.php" onsubmit="return validate();"> -->
-    <form method="post" action="../../Backend/ltc.php" onsubmit="return validate();">
-    
-        <!--onsubmit="return validate();-->
+
+    <form method="post" action="post.html" onsubmit="return validate();">
         <!-- <h3>Login</h3> -->
         <p>
-            Your name: <br /><input type="text" placeholder="Enter your full name" required />
+            Name:<br />
+            <input type="text" placeholder="Enter your name" required />
         </p>
         <p>
             UID:*<br />
-            <input type="number" placeholder="Enter your user ID" name="uid" id="uid" required />
+            <input type="text" placeholder="Enter your user ID" required />
         </p>
         <p>
             Password:* <br /><input type="password" name="password" id="password" required />
         </p>
         <p>
-            Stream:* <br /><input type="text" name="stream" id="stream" required />
-        </p>
-        <p>
-            Semester:* <br /><input type="number" name="semester" id="semester" required />
+            Department: <br /><input type="text" placeholder="Enter your department" required />
         </p>
         <div class="center">
-            <button id="submitForm" value="submit">Login</button>
+            <a href="Faculty page.html"><button id="submitForm">Sign up</button></a>
         </div>
     </form>
-    <p class="pre">Not a Teacher? <a href="./user.html">Previous Page</a></p>
+    <p class="pre">Not a Teacher? <a href="page1.html">Previous Page</a></p>
+
 </body>
-<!-- <script>
-    if (localStorage.getItem("mode")=="black") {
-        document.body.style.background = "black"
-        document.body.style.clor = "white"
-    }
-    else{
-        document.body.style.background = "white"
-        document.body.style.color = "black"
-    }
-</script> -->
+
 </html>

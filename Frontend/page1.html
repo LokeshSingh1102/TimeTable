@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Condensed&display=swap');
+
+
+
+        body {
+            background: #131316;
+            color: rgb(197, 183, 183);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .p1 {
+            height: 1.2vh;
+            padding-left: 42%;
+            padding-top: 20%;
+            padding-bottom: 20%;
+            /* background-color: white;
+            color: black; */
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        /* a:hover{
+        color: #111;
+       } */
+        button {
+            padding: 0.8em 1.8em;
+            border: 2px solid #ffffff;
+            position: relative;
+            overflow: hidden;
+            background-color: transparent;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 16px;
+            transition: .3s;
+            z-index: 1;
+            font-family: inherit;
+            color: #ffffff;
+        }
+
+        button::before {
+            content: '';
+            width: 0;
+            height: 300%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background: #ffffff;
+            transition: .5s ease;
+            display: block;
+            z-index: -1;
+        }
+
+        button:hover::before {
+            width: 105%;
+        }
+
+        button:hover {
+            color: #111;
+        }
+
+        h2 {
+            color: white;
+            padding-left: 10%;
+        }
+
+        nav {
+            background-color: white;
+            height: 50px;
+            position: fixed;
+            width: 100%;
+            z-index: 9999;
+        }
+
+        nav p {
+            padding-left: 5%;
+            font-style: bold;
+            font-size: 20px;
+            color: #111;
+        }
+
+        section {
+            display: grid;
+            place-items: center;
+            align-content: center;
+            min-height: 100vh;
+            font-size: 30px;
+            line-height: 18px;
+        }
+
+        .two {
+            background-color: #f7f8fc;
+        }
+
+        .four img {
+            float: left;
+            display: flex;
+            padding-bottom: 1%;
+        }
+
+        .four p {
+            color: gray;
+            line-height: 1px;
+            padding-left: 3%;
+        }
+
+        .textbox {
+            padding-top: 0.5px;
+        }
+
+
+        footer {
+            background-color: transparent;
+            padding-left: 1%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <p>Routine Maker</p>
+    </nav>
+
+    <section class="three">
+        <p>Having Difficulty Creating, Editing and Managing so many Time Tables in your Institute? </p>
+        <p>We are here to make your life easy.</p>
+        <p>Let's Begin!!!</p>
+    </section>
+
+    <section class="two">
+        <img src="RoutineMaker.jpeg">
+    </section>
+
+    <div class="p1">
+        <h2>You're a?</h2>
+        <a href="teachers login page.html"><button>Teacher</button></a>
+        <a href="students login page.html"><button>Student</button></a>
+    </div>
+    <footer>
+        <div class="four">
+            <img src="logo.png" height="40px">
+            <div class="textbox">
+                <p>Dinabandhu Andrews Institute
+                <p>of Technology and management</p>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

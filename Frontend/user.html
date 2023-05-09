@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
     <style>
-        body {
+        /* body {
             background: #212121;
-        }
+        } */
 
         .p1 {
             padding-left: 45%;
@@ -61,7 +62,7 @@
             color: #111;
         }
 
-        h2 {
+        #head {
             color: white;
             padding-left: 10%;
         }
@@ -70,10 +71,12 @@
 
 <body>
     <div class="p1">
-        <h2>You're a?</h2>
+        <h2 id="head">You're a?</h2>
         <a href="Teachers/loginTeacher.html"><button>Teacher</button></a>
         <a href="Students/loginStudent.html"><button>Student</button></a>
     </div>
+    <button onclick="changemode()">mode</button>
 </body>
+<script src="style.js"></script>
 
 </html>
