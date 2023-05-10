@@ -41,7 +41,7 @@
                         </li>
                     </ul>
                     <div>
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="changemode()">light
+                        <button id="modebtn" type="button" class="btn btn-secondary btn-sm" onclick="changemode()">light
                             mode</button>
                     </div>
                 </div>
@@ -58,19 +58,23 @@
         window.addEventListener("load", () => {
             if (localStorage.getItem("mode") == "black") {
                 document.body.style.background = "black"
+                document.getElementById("modebtn").innerHTML = "Dark Mode";
             }
             else {
                 document.body.style.background = "white";
+                document.getElementById("modebtn").innerHTML = "Light Mode";
             }
         })
 
         function changemode() {
             if (document.body.style.background == "white") {
                 document.body.style.background = "black"
+                document.getElementById("modebtn").innerHTML = "Dark Mode";
                 localStorage.setItem("mode", "black");
             }
             else {
                 document.body.style.background = "white"
+                document.getElementById("modebtn").innerHTML = "Light Mode";
                 localStorage.setItem("mode", "white");
             }
         }

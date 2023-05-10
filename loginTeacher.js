@@ -33,6 +33,7 @@ const myFunction = (e) => {
     }
 }
 const validate = () => {
+    myFunction();
     console.log(i);
     if(i === 4 ){
         alert("hello")
