@@ -37,7 +37,7 @@
         }
 
         form {
-            height: 88vh;
+            height: 96vh;
             width: 65vh;
             background-color: rgba(255, 255, 255, 0.13);
             position: absolute;
@@ -155,7 +155,7 @@
     <form method="post" action="post.html" onsubmit="return validate();">
         <!-- <h3>Login</h3> -->
         <p>
-            Name:<br />
+            Full Name:<br />
             <input type="text" placeholder="Enter your name" required />
         </p>
         <p>
@@ -167,11 +167,14 @@
             </select>
         </p>
         <p>
-            UID:*<br />
-            <input type="text" placeholder="Enter your user ID" required />
+            Email:<br />
+            <input type="email" placeholder="Enter your email" required />
         </p>
         <p>
             Password:* <br /><input type="password" name="password" id="password" required />
+        </p>
+        <p>
+            Re-type password:* <br /><input type="password" name="password" id="password" required />
         </p>
         <p>
             Department: <br /><input type="text" placeholder="Enter your department" required />
@@ -180,7 +183,7 @@
             <a href="Faculty page.html"><button id="submitForm">Sign up</button></a>
         </div>
     </form>
-    <p class="pre">Not a Teacher? <a onclick="previous()">Previous Page</a></p>
+    <p class="pre">Not a Teacher? <a style="cursor: pointer;" onclick="previous()">Previous Page</a></p>
 
 </body>
 <script>
