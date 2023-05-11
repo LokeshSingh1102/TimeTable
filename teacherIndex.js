@@ -46,9 +46,6 @@ $(document).ready(function () {
                 Dept: sessionStorage.getItem("Department"),
                 Semester: sessionStorage.getItem("Semester"),
                 Section: sessionStorage.getItem("Section"),
-            },
-            success: function (data) {
-                $('#output').html(data);
             }
         })
         $('#Teacher').val('');
