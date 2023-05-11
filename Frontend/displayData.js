@@ -123,7 +123,7 @@ function main() {
                 }
                 else {
                     element.innerHTML = result[matrix[r][c]].Subject;
-                    saveTeacher.push({ "teacher": result[matrix[r][c]].Teacher, "subject": result[matrix[r][c]].Subject, "period": c + 1,"d":r, "semester": 6, "section": "B" })
+                    saveTeacher.push({ "teacher": result[matrix[r][c]].Teacher, "subject": result[matrix[r][c]].Subject, "period": c + 1,"d":r })
                     c = (c + 1) % 4;
                     if (c == 0) {
                         r = r + 1;
@@ -142,8 +142,9 @@ $(".save").click(function () {
                 Teacher: saveTeacher[i].teacher,
                 Subject: saveTeacher[i].subject,
                 Period: saveTeacher[i].period,
-                Semester: saveTeacher[i].semester,
-                Section: saveTeacher[i].section,
+                Dept: sessionStorage.getItem("Department"),
+                Semester: sessionStorage.getItem("Semester"),
+                Section: sessionStorage.getItem("Section"),
                 Day: day[saveTeacher[i].d]
             },
             success: function (data) {
