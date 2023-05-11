@@ -37,8 +37,8 @@
         }
 
         form {
-            height: 471px;
-            width: 381px;
+            height: 96vh;
+            width: 65vh;
             background-color: rgba(255, 255, 255, 0.13);
             position: absolute;
             transform: translate(-50%, -50%);
@@ -131,6 +131,21 @@
             padding-top: 46%;
             padding-left: 80%;
         }
+
+        select {
+            height: 50px;
+            width: 100%;
+            color: #838383;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 18px;
+            font-weight: 300;
+        }
+        option{
+            color: black;
+        }
     </style>
 
 </head>
@@ -140,15 +155,26 @@
     <form method="post" action="post.html" onsubmit="return validate();">
         <!-- <h3>Login</h3> -->
         <p>
-            Name:<br />
+            Full Name:<br />
             <input type="text" placeholder="Enter your name" required />
         </p>
         <p>
-            UID:*<br />
-            <input type="text" placeholder="Enter your user ID" required />
+            Profession:<br />
+            <!-- <input id="profession" type="d" placeholder="Enter your Profession" required /> -->
+            <select name="profession" id="profession">
+                <option value="Teacher">Teacher</option>
+                <option value="Student">Student</option>
+            </select>
+        </p>
+        <p>
+            Email:<br />
+            <input type="email" placeholder="Enter your email" required />
         </p>
         <p>
             Password:* <br /><input type="password" name="password" id="password" required />
+        </p>
+        <p>
+            Re-type password:* <br /><input type="password" name="password" id="password" required />
         </p>
         <p>
             Department: <br /><input type="text" placeholder="Enter your department" required />
@@ -157,8 +183,13 @@
             <a href="Faculty page.html"><button id="submitForm">Sign up</button></a>
         </div>
     </form>
-    <p class="pre">Not a Teacher? <a href="page1.html">Previous Page</a></p>
+    <p class="pre">Not a Teacher? <a style="cursor: pointer;" onclick="previous()">Previous Page</a></p>
 
 </body>
+<script>
+    function previous() {
+        window.history.back()
+    }
+</script>
 
 </html>

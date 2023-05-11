@@ -1,5 +1,14 @@
 console.log("first");
 
+window.addEventListener("load",()=>{
+    const loader = document.querySelector(".loader")
+    loader.classList.add("loader-hidden")
+
+    loader.addEventListener("transitionend",()=>{
+        document.body.removeChild("loader")
+    })
+})
+
 console.log("hello");
 
 let matrix = [

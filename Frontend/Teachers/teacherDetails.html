@@ -45,6 +45,11 @@
                     </ul>
 
                 </div>
+                <div>
+                    <button style="margin-top:5px ;" id="modebtn" type="button" class="btn btn-secondary btn-sm"
+                        onclick="changemode()">light
+                        mode</button>
+                </div>
             </div>
         </nav>
     </nav>
@@ -81,6 +86,36 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
         integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
         crossorigin="anonymous"></script>
+
+    <script>
+        window.addEventListener("load", () => {
+            if (localStorage.getItem("mode") == "black") {
+                document.body.style.background = "black"
+                document.body.style.color = "white"
+                document.getElementById("modebtn").innerHTML = "Dark Mode";
+            }
+            else {
+                document.body.style.background = "white";
+                document.body.style.color = "black"
+                document.getElementById("modebtn").innerHTML = "Light Mode";
+            }
+        })
+
+        function changemode() {
+            if (document.body.style.background == "white") {
+                document.body.style.background = "black"
+                document.body.style.color = "white"
+                document.getElementById("modebtn").innerHTML = "Dark Mode";
+                localStorage.setItem("mode", "black");
+            }
+            else {
+                document.body.style.background = "white"
+                document.body.style.color = "black"
+                document.getElementById("modebtn").innerHTML = "Light Mode";
+                localStorage.setItem("mode", "white");
+            }
+        }
+    </script>
 </body>
 
 </html>
