@@ -9,6 +9,16 @@ window.addEventListener("load",()=>{
     })
 })
 
+let i = 0;
+function s(){
+    i++;
+
+    if(i!=0){
+        document.querySelector(".save").disabled=true;
+    }
+
+}
+
 console.log("hello");
 
 let matrix = [
