@@ -7,20 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/table.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <title>Index</title>
+    <style>
+
+    </style>
 </head>
 
 <body>
     <p id="output"></p>
+    <div class="loader"></div>
     <div class="container">
         <nav style="width:8vw;">
             <a style="cursor: pointer;" onclick="history.back()">Back to home</a>
-            <a class="save" style="cursor: pointer;" >Save</a>
+            <a class="save" style="cursor: pointer;">Save</a>
+            <input type="button" value="print" onclick="myPrint()">
         </nav>
-        <div class="loader"></div>
 
-        <table class="center" border="1" cellspacing="0">
+
+        <table id="table" class="center" border="1" cellspacing="0">
             <!--Days and hoyrs-->
             <tr>
                 <th rowspan="2">Day</th>
@@ -104,7 +110,15 @@
     </div>
 
     <script src="displayData.js"></script>
-
+    <script>
+        function myPrint() {
+            let table = document.getElementById("table");
+            newin = window.open("")
+            newin.document.write(table.outerHTML);
+            newin.print()
+            newin.close();
+        }
+    </script>
 </body>
 
 </html>

@@ -143,14 +143,42 @@
             font-size: 18px;
             font-weight: 300;
         }
-        option{
+
+        option {
             color: black;
+        }
+
+        nav {
+            display: flex;
+            background-color: white;
+            height: 50px;
+            position: fixed;
+            width: 100%;
+            z-index: 9999;
+
+        }
+
+        nav p {
+            color: black;
+        }
+
+        nav div button {
+            display: inline;
+            width: fit-content;
+            margin: 0;
         }
     </style>
 
 </head>
 
 <body>
+    <nav>
+        <p>Routine Maker</p>
+        <div>
+            <button id="modebtn" type="button" class="btn btn-secondary btn-sm" onclick="changemode()">light
+                mode</button>
+        </div>
+    </nav>
 
     <form method="post" action="post.html" onsubmit="return validate();">
         <!-- <h3>Login</h3> -->
@@ -189,6 +217,32 @@
 <script>
     function previous() {
         window.history.back()
+    }
+    window.addEventListener("load", () => {
+        if (localStorage.getItem("mode") == "black") {
+            document.body.style.background = "black"
+            document.body.style.color = "white"
+            document.getElementById("modebtn").innerHTML = "Dark Mode";
+        }
+        else {
+            document.body.style.background = "white";
+            document.body.style.color = "black";
+            document.getElementById("modebtn").innerHTML = "Light Mode";
+        }
+    })
+    function changemode() {
+        if (document.body.style.background == "white") {
+            document.body.style.background = "black"
+            document.body.style.color = "white"
+            document.getElementById("modebtn").innerHTML = "Dark Mode";
+            localStorage.setItem("mode", "black");
+        }
+        else {
+            document.body.style.background = "white"
+            document.body.style.color = "black";
+            document.getElementById("modebtn").innerHTML = "Light Mode";
+            localStorage.setItem("mode", "white");
+        }
     }
 </script>
 
