@@ -3,37 +3,32 @@ console.log('ajax');
 document.getElementById('myForm').addEventListener('submit', (e) => {
     e.preventDefault();
 })
-
+let i = 0;
+// if(i!=0){
+//     document.getElementById("createTT").href="../table.html";
+// }
+function fillData() {
+    const teacher = document.getElementById("Teacher").value
+    const subject = document.getElementById("Subject").value
+    const classes = document.getElementById("Classes").value
+    if (teacher != "" && subject != "" && classes != "") {
+        document.getElementById("btn").disabled = false
+        console.log("disabled");
+    }
+    else {
+        document.getElementById("btn").disabled = true
+    }
+}
 $(document).ready(function () {
-    // console.log('ready');
-    // let arr = [];
-    // let storeArr = ["Teacher", "Subject", "Classes", "Semester", "Section"];
-    // $('.plusIcon').click(function () {
-    //     let store = {
-    //         "Teacher": "",
-    //         "Subject": "",
-    //         "Classes": 0,
-    //         "Semester": 0,
-    //         "Section": "",
-    //     }
-    //     console.log('plusIcon');
-    //     let i = 0;
-    //     $('.input').each(function () {
-    //         store[storeArr[i++]] = $(`.inputVal${i}`).val();
-    //         // console.log(arr[i-1]);
-    //     })
-    //     console.log(store);
-    //     arr.push(store);
-    //     console.log(arr);
-    //     $('#Teacher').val('');
-    //     $('#Subject').val('');
-    //     $('#Classes').val('');
-    //     $('#Semester').val('');
-    //     $('#Section').val('');
-    //     i = 0;
-    // })
-    $('#myForm').submit(function () {
-        console.log(arr);
+    $.get("http://localhost/TimeTable/Backend/rmvFromTeacherTable.php", () => {
+        console.log("fired");
+    })
+
+    $('#btn').click(function () {
+        i++;
+        if (i >= 0) {
+            document.getElementById("createTT").href = "../table.html";
+        }
         console.log();
         console.log('submit');
         $.ajax({

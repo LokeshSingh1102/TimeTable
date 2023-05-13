@@ -96,15 +96,15 @@
     <div class="center">
         <form action="teacherDetails.html" method="post" onsubmit="getFormData()">
             <div class="mb-3"><label for="dept">Department: </label>
-                <input type="text" name="dept" id="stream" class="form-control">
+                <input type="text" name="dept" id="dept" class="form-control" onchange="fillData()">
             </div>
             <div class="mb-3"><label for="semester">Semester: </label>
-                <input type="number" name="semester" id="semester" class="form-control">
+                <input type="number" name="semester" id="semester" class="form-control" onchange="fillData()">
             </div>
             <div class="mb-3"><label for="section">Section:</label>
-                <input type="text" name="section" id="section" class="form-control">
+                <input type="text" name="section" id="section" class="form-control" onchange="fillData()">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="btn" disabled>Submit</button>
         </form>
     </div>
 
@@ -116,10 +116,27 @@
             sessionStorage.setItem("Department", department);
             sessionStorage.setItem("Semester", semester);
             sessionStorage.setItem("Section", section);
-            console.log(stream);
+            // console.log(stream);
             //   return true;
 
-        } window.addEventListener("load", () => {
+        }
+
+        function fillData(){
+            const dept = document.getElementById("dept").value
+            const semester = document.getElementById("semester").value
+            const section = document.getElementById("section").value
+            // console.log(dept,semester,section);
+            if(dept!="" && semester!="" && section!=""){
+                document.getElementById("btn").disabled = false
+            }
+            else{
+                document.getElementById("btn").disabled = true
+            }
+        }
+
+         window.addEventListener("load", () => {
+            // const section = document.getElementById("section").value
+            // console.log(section=="");
             if (localStorage.getItem("mode") == "black") {
                 document.body.style.background = "black"
                 document.body.style.color = "white"
