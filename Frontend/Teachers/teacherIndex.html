@@ -30,7 +30,7 @@
                             <a class="nav-link " aria-current="page" href="streamSemSec.html">Create TimeTable</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="../table.html">View TimeTable</a>
+                            <a class="nav-link " aria-current="page" href="viewStreamSemSec.html">View TimeTable</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="../../Backend/viewCourseSub.php">View Course
@@ -69,11 +69,13 @@
         function changemode() {
             if (document.body.style.background == "white") {
                 document.body.style.background = "black"
+                document.body.style.color = "wheat"
                 document.getElementById("modebtn").innerHTML = "Dark Mode";
                 localStorage.setItem("mode", "black");
             }
             else {
                 document.body.style.background = "white"
+                document.body.style.color = "black"
                 document.getElementById("modebtn").innerHTML = "Light Mode";
                 localStorage.setItem("mode", "white");
             }

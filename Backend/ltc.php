@@ -4,12 +4,12 @@ include("config.php");
 // print_r($_POST);
 $uid=$_POST["uid"];
 $password=$_POST["password"];
-$stream=$_POST["stream"];
-$semester=$_POST["semester"];
+// $stream=$_POST["stream"];
+// $semester=$_POST["semester"];
 $status=0;
 $mssg="";
 
-$sel="SELECT * FROM teacher WHERE uid='$uid'";
+$sel="SELECT * FROM teacherlogin WHERE uid='$uid'";
 $qr1=mysqli_query($conn,$sel);
 $nr=mysqli_num_rows($qr1);
 if($nr){
@@ -21,7 +21,7 @@ if($nr){
 		$_SESSION["login_status"]=true;
 		$_SESSION["login_id"]=$row["id"];
 		
-		$updt="UPDATE teacher SET login_token='$token', login_dttm='$dttm' WHERE uid='$uid'";
+		$updt="UPDATE teacherlogin SET login_token='$token', login_dttm='$dttm' WHERE uid='$uid'";
 		$qr2=mysqli_query($conn,$updt);
 		$status=1;
 		$mssg="Login Success";

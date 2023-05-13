@@ -81,7 +81,7 @@
                             <a class="nav-link " aria-current="page" href="../table.html">Create TimeTable</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="../table.html">View TimeTable</a>
+                            <a class="nav-link " aria-current="page" href="viewStreamSemSec.html">View TimeTable</a>
                         </li>
                     </ul>
                 </div>
@@ -139,7 +139,7 @@
             // console.log(section=="");
             if (localStorage.getItem("mode") == "black") {
                 document.body.style.background = "black"
-                document.body.style.color = "white"
+                document.body.style.color = "wheat"
                 document.getElementById("modebtn").innerHTML = "Dark Mode";
             }
             else {
@@ -147,11 +147,11 @@
                 document.body.style.color = "black"
                 document.getElementById("modebtn").innerHTML = "Light Mode";
             }
-            const loader = document.querySelector(".loader")
+            let loader = document.querySelector(".loader")
             loader.classList.add("loader-hidden")
 
             loader.addEventListener("transitionend", () => {
-                document.querySelector(".loader").style.display = "none"
+                document.querySelector(".loader").style.display = "none";
             })
         })
 
