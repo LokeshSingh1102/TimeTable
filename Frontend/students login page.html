@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Students Login</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+    * {
+      box-sizing: border-box;
+      color: white;
+    }
+
+    body {
+      margin: 0px;
+      background: #080710;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    nav {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    nav a {
+      text-decoration: none;
+      padding: 20px;
+      text-align: right;
+      float: right;
+      color: white;
+    }
+
+    form {
+      height: 320px;
+      width: 350px;
+      background-color: rgba(255, 255, 255, 0.13);
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+      padding: 20px 30px;
+    }
+
+    form * {
+      font-family: "Poppins", sans-serif;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      outline: none;
+      border: none;
+    }
+
+    form h3 {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 12px;
+      text-align: center;
+    }
+
+    p {
+      display: block;
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    textarea,
+    input {
+      display: block;
+      height: 50px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.07);
+      border-radius: 3px;
+      padding: 0 10px;
+      margin-top: 8px;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    ::textarea,
+    ::placeholder {
+      color: #e5e5e5;
+    }
+
+    button {
+      /* align-items: center; */
+      display: block;
+      margin: auto;
+      margin-top: 10px;
+      width: 30%;
+      background-color: #f6e8df;
+      color: #080710;
+      padding: 15px 0;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: translateY(4px) translateX(4px);
+    }
+
+    .center {
+      /* display: flex;
+    justify-content: center;
+    align-items: center; */
+      height: 50px;
+    }
+
+    .center a {
+      color: #9b9bed;
+      font-weight: bold;
+    }
+
+    .center p {
+      text-align: center;
+    }
+
+    .container {
+      position: absolute;
+      top: 94%;
+      left: 82%;
+      transform: translate(-50%, -50%);
+      width: 550px;
+    }
+
+    .container ul {
+      list-style: none;
+    }
+
+    .pre {
+      padding-top: 46%;
+      padding-left: 80%;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <form method="post" action="../Backend/lsc.php" onsubmit="return validate();">
+    <!-- <h3>Login</h3> -->
+    <p>
+      UID:*<br />
+      <input type="text" placeholder="Enter your user ID" name="uid" required />
+    </p>
+    <p>
+      Password:* <br /><input type="password" name="password" id="password" required />
+    </p>
+    <div class="center">
+      <a href="Students/studentIndex.html"><button id="submitForm"> Login</button></a> 
+      <p><a href="singup.html">Singup</a>.if you are new</p>
+    </div>
+  </form>
+  <p class="pre">Not a Student? <a style="cursor: pointer;" href="homepage.html">Previous Page</a></p>
+
+
+</body>
+
+</html>
