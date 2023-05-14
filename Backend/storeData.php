@@ -10,7 +10,7 @@ $Semester = $_POST['Semester'];
 $Section = $_POST['Section'];
 echo $teacher, $Subject, $Class;
 
-$sql = "INSERT INTO teacher (teacherName, subject , class, dept, semester, section) VALUES ('$teacher','$Subject','$Class','$Dept','$Semester','$Section')";
+$sql = "INSERT INTO teacher (teacherName, subject , class) VALUES ('$teacher','$Subject','$Class')";
 mysqli_query($conn, $sql);
 
 mysqli_close($conn);

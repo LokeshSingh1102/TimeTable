@@ -30,7 +30,7 @@
                             <a class="nav-link active" href="./teacherDetails.html">Teacher Details</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="../table.html">Create TimeTable</a>
+                            <a id="createTT" class="nav-link " aria-current="page" href="#" >Create TimeTable</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="viewStreamSemSec.html">View TimeTable</a>
@@ -58,18 +58,18 @@
         <form id="myForm" action="" method="post">
             <div class="mb-3">
                 <label for="Teacher" class="form-label">Teacher Name</label>
-                <input type="text" class="form-control input inputVal1" id="Teacher" aria-describedby="emailHelp">
+                <input type="text" class="form-control input inputVal1" id="Teacher" aria-describedby="emailHelp" onchange="fillData()">
             </div>
             <div class="mb-3">
                 <label for="Subject" class="form-label">Subject Name</label>
-                <input type="text" class="form-control input inputVal2" id="Subject">
+                <input type="text" class="form-control input inputVal2" id="Subject" onchange="fillData()">
             </div>
             <div class="mb-3">
                 <label for="Classes" class="form-label">Number of Classes</label>
-                <input type="number" class="form-control input inputVal3" id="Classes">
+                <input type="number" class="form-control input inputVal3" id="Classes" onchange="fillData()">
             </div>
             <div>
-                <button id="btn" type="submit" class="btn btn-primary">Submit</button>
+                <button id="btn" type="submit" class="btn btn-primary" disabled >Submit</button>
             </div>
         </form>
     </div>
@@ -100,7 +100,7 @@
                 document.getElementById("modebtn").innerHTML = "Light Mode";
             }
         })
-
+        
         function changemode() {
             if (document.body.style.background == "white") {
                 document.body.style.background = "black"

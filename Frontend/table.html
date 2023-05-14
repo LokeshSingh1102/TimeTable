@@ -7,20 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/table.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <title>Index</title>
+    <style>
+        @media print {
+            #n * {
+                display: none;
+            }
+
+            /* #table,
+            #table * {
+                display: block;
+            } */
+        }
+    </style>
 </head>
 
 <body>
     <p id="output"></p>
+    <div class="loader"></div>
     <div class="container">
-        <nav style="width:8vw;">
-            <a style="cursor: pointer;" onclick="history.back()">Back to home</a>
-            <a class="save" style="cursor: pointer;" onclick="s()" >Save</a>
+        <nav id="n" style="width:8vw;">
+            <a style="cursor: pointer;" href="./Teachers/teacherIndex.html">Back to home</a>
+            <a class="save" style="cursor: pointer;">Save</a>
+            <input type="button" value="print" id="myPrint">
         </nav>
-        <div class="loader"></div>
 
-        <table class="center" border="1" cellspacing="0">
+        <table id="table" class="center" border="1" cellspacing="0">
             <!--Days and hoyrs-->
             <tr>
                 <th rowspan="2">Day</th>
@@ -48,7 +62,8 @@
                 <td>MON</td>
                 <td class="Tdata"></td>
                 <td class="Tdata"></td>
-                <td rowspan="6" align="center"> R <br> <br> <br> <br> E <br> <br> <br> <br> C <br> <br> <br> <br> E <br>
+                <td rowspan="6" align="center"> R <br> <br> <br> <br> E <br> <br> <br> <br> C <br> <br> <br> <br> E
+                    <br>
                     <br> <br> <br> S <br><br> <br> <br> S
                 </td>
                 <td class="Tdata"></td>
@@ -104,7 +119,13 @@
     </div>
 
     <script src="displayData.js"></script>
+    <script>
 
+        document.getElementById("myPrint").addEventListener("click", () => {
+            window.print()
+
+        })
+    </script>
 </body>
 
 </html>
