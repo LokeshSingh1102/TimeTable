@@ -48,5 +48,6 @@ $(document).ready(function () {
         $('#Classes').val('');
         $('#Semester').val('');
         $('#Section').val('');
+        fillData()
     })
 })

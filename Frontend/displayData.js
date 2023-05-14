@@ -1,23 +1,24 @@
 console.log("first");
 
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
     const loader = document.querySelector(".loader")
     loader.classList.add("loader-hidden")
 
-    loader.addEventListener("transitionend",()=>{
+    loader.addEventListener("transitionend", () => {
         document.querySelector(".loader").style.display = "none";
     })
 })
 
-let i = 0;
-function s(){
-    i++;
+// let i = 0;
+// function s() {
+//     i++;
 
-    if(i!=0){
-        document.querySelector(".save").disabled=true;
-    }
+//     if (i != 0) {
+//         // document.querySelector(".save").disabled = true;
+//         document.querySelector(".save").classList.add("disable-link")
+//     }
 
-}
+// }
 
 console.log("hello");
 
@@ -70,7 +71,7 @@ function main() {
             let i = 0;
 
             let totalclass = 0;
-            let totalTeacher = result.length<=4?result.length:4;
+            let totalTeacher = result.length <= 4 ? result.length : 4;
 
             while (i < result.length) {
                 let rowNo = 0;
@@ -85,7 +86,7 @@ function main() {
                         if (matrix[rowNo][colomnNo] >= 0) {
 
                             for (let j = 0; j < matrix[rowNo].length; j++) {
-                                let resu = await periodCheck(rowNo, result[i].Teacher, j+1)
+                                let resu = await periodCheck(rowNo, result[i].Teacher, j + 1)
                                 // console.log("first", resu);
                                 if (matrix[rowNo][j] == -1 && resu === "false") {
                                     matrix[rowNo][j] = i;
@@ -98,7 +99,7 @@ function main() {
                             colomnNo = (colomnNo + 1) % totalTeacher
                         }
                         else {
-                            if (await periodCheck(rowNo, result[i].Teacher, colomnNo+1) === "false") {
+                            if (await periodCheck(rowNo, result[i].Teacher, colomnNo + 1) === "false") {
                                 // console.log("second",colomnNo+1);
                                 matrix[rowNo][colomnNo] = i;
                                 // colomnNo = j;
@@ -106,8 +107,8 @@ function main() {
                                 totalclass--
                             }
                             else {
-                                for (let j = colomnNo+1; j < matrix[rowNo].length; j++) {
-                                    let resu = await periodCheck(rowNo, result[i].Teacher, j+1)
+                                for (let j = colomnNo + 1; j < matrix[rowNo].length; j++) {
+                                    let resu = await periodCheck(rowNo, result[i].Teacher, j + 1)
                                     // console.log("third", resu);
                                     if (matrix[rowNo][j] == -1 && resu === "false") {
                                         // console.log("checkingggg",i,j);
@@ -137,7 +138,7 @@ function main() {
                 }
                 else {
                     element.innerHTML = result[matrix[r][c]].Subject;
-                    saveTeacher.push({ "teacher": result[matrix[r][c]].Teacher, "subject": result[matrix[r][c]].Subject, "period": c + 1,"d":r })
+                    saveTeacher.push({ "teacher": result[matrix[r][c]].Teacher, "subject": result[matrix[r][c]].Subject, "period": c + 1, "d": r })
                     c = (c + 1) % 4;
                     if (c == 0) {
                         r = r + 1;

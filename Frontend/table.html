@@ -15,11 +15,9 @@
             #n * {
                 display: none;
             }
-
-            /* #table,
-            #table * {
-                display: block;
-            } */
+        }
+        .disable-link {
+            pointer-events: none;
         }
     </style>
 </head>
@@ -30,7 +28,7 @@
     <div class="container">
         <nav id="n" style="width:8vw;">
             <a style="cursor: pointer;" href="./Teachers/teacherIndex.html">Back to home</a>
-            <a class="save" style="cursor: pointer;">Save</a>
+            <a class="save" style="cursor: pointer;" onclick="s()">Save</a>
             <input type="button" value="print" id="myPrint">
         </nav>
 
@@ -125,6 +123,16 @@
             window.print()
 
         })
+        let i = 0;
+        function s() {
+            i++;
+
+            if (i != 0) {
+                // document.querySelector(".save").disabled = true;
+                document.querySelector(".save").classList.add("disable-link")
+            }
+
+        }
     </script>
 </body>
 
