@@ -14,7 +14,7 @@ $status=0;
 $mssg="";
 
 if($profession=="Teacher"){
-        $sqll="SELECT id FROM teacher where email='$email'";
+        $sqll="SELECT id FROM teacher_data where email='$email'";
         $qr1=mysqli_query($conn,$sqll) or die(mysqli_error($conn));
         $noc=mysqli_num_rows($qr1);
         //email  Already Used Or Not Checking
@@ -23,7 +23,7 @@ if($profession=="Teacher"){
                     
                     $uid = abs( crc32( uniqid() ) ); //1551585806
                     //Insert data
-                    $sql= "INSERT INTO teacher (name,email,department,signup_dttm,uid,password)
+                    $sql= "INSERT INTO teacher_data (name,email,department,signup_dttm,uid,password)
                     VALUES ('$name', '$email', '$department', '$dttm','$uid','$password')";
                     $qrr=mysqli_query($conn,$sql) or die(mysqli_error($conn));
                     if($qrr){
