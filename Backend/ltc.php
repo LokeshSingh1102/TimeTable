@@ -20,6 +20,17 @@ if($nr){
 		$_SESSION["login_token"]=$token;
 		$_SESSION["login_status"]=true;
 		$_SESSION["login_id"]=$row["id"];
+
+		$qry='';
+		if(isset($_POST['remember']))
+		{
+			$remember_token=md5(rand(100000,999999999999).time());
+			$exp_remember =time() + (86400*30);
+			
+			setcookie('remember_token', $remember_token, $exp_remember, "/"); // 86400 = 1 day
+			$qry=",remember_token='$remember_token',exp_remember='$exp_remember'";
+			//setcookie('exp_remember', $exp_remember, $exp_remember, "/"); // 86400 = 1 day
+		}
 		
 		$updt="UPDATE teacher_data SET login_token='$token', login_dttm='$dttm' WHERE uid='$uid'";
 		$qr2=mysqli_query($conn,$updt);
