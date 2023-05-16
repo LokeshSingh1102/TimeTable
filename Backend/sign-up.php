@@ -22,11 +22,17 @@ if($profession=="Teacher"){
             
                     
                     $uid = abs( crc32( uniqid() ) ); //1551585806
+                    $token=md5(rand(0,9999));
                     //Insert data
-                    $sql= "INSERT INTO teacher_data (name,email,signup_dttm,uid,password)
-                    VALUES ('$name', '$email', '$dttm','$uid','$password')";
+                    
+                    $sql= "INSERT INTO `teacher_data` (`name`,`email`,`signup_dttm`,`uid`,`password`,`login_token`,`login_dttm`)
+                    VALUES ('$name', '$email', '$dttm','$uid','$password','$token','$dttm')";
                     $qrr=mysqli_query($conn,$sql) or die(mysqli_error($conn));
+                    
                     if($qrr){
+                		$_SESSION["login_token"]=$token;
+                        $_SESSION["login_status"]=true;
+                        $_SESSION["login_id"]=$uid;
                         $status=1;
 		                $mssg="Sign-up Successful";
                     }else{
@@ -45,11 +51,15 @@ if($profession=="Teacher"){
                     
                             
                             $uid = abs( crc32( uniqid() ) ); //1551585806
+                            $token=md5(rand(0,9999));
                             //Insert data
-                            $sql= "INSERT INTO student (name,email,department,signup_dttm,uid,password)
-                            VALUES ('$name', '$email', '$department', '$dttm','$uid','$password')";
+                            $sql= "INSERT INTO `student` (`name`,`email`,`signup_dttm`,`uid`,`password`,`login_token`,`login_dttm`)
+                            VALUES ('$name', '$email', '$dttm','$uid','$password','$token','$dttm')";
                             $qrr=mysqli_query($conn,$sql) or die(mysqli_error($conn));
                             if($qrr){
+                                $_SESSION["login_token"]=$token;
+                                $_SESSION["login_status"]=true;
+                                $_SESSION["login_id"]=$uid;
                                 $status=2;
         		                $mssg="Sign-up Successful";
                             }else{
@@ -66,14 +76,14 @@ if($status==1){
     echo "
     <script>
     alert('".$mssg."');
-    window.location.href='../Frontend/Teachers/teacherIndex.html';
+    window.location.href='../Frontend/Teachers/teacherIndex.php';
     </script>
     ";
 }elseif($status==2){
     echo "
     <script>
     alert('".$mssg."');
-    window.location.href='../Frontend/Students/studentIndex.html';
+    window.location.href='../Frontend/Students/studentIndex.php';
     </script>
     ";
 }
