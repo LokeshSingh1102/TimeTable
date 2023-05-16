@@ -3,11 +3,11 @@ include('config.php');
 // echo '<pre>';
 // print_r($_POST);
 // echo '</pre>';
-$name=$_POST['name'];
+$name=$_POST['username'];
 $profession=$_POST['profession'];
 $email=$_POST['email'];
 $password=$_POST['password'];
-$department=$_POST['department'];
+// $department=$_POST['department'];
 $dttm=date('Y-m-d H:i:s');
 
 $status=0;
@@ -23,8 +23,8 @@ if($profession=="Teacher"){
                     
                     $uid = abs( crc32( uniqid() ) ); //1551585806
                     //Insert data
-                    $sql= "INSERT INTO teacher_data (name,email,department,signup_dttm,uid,password)
-                    VALUES ('$name', '$email', '$department', '$dttm','$uid','$password')";
+                    $sql= "INSERT INTO teacher_data (name,email,signup_dttm,uid,password)
+                    VALUES ('$name', '$email', '$dttm','$uid','$password')";
                     $qrr=mysqli_query($conn,$sql) or die(mysqli_error($conn));
                     if($qrr){
                         $status=1;
