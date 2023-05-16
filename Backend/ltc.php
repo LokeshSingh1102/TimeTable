@@ -49,7 +49,7 @@ if($status==1){
 	echo "
 	<script>
 	alert('".$mssg."');
-	window.location.href='../Frontend/Teachers/teacherIndex.html';
+	window.location.href='../Frontend/Teachers/teacherIndex.php';
 	</script>
 	";
 }
