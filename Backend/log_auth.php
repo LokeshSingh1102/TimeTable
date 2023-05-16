@@ -28,7 +28,7 @@ if(isset($_SESSION['login_status']) && $_SESSION['login_status']==true)
 }else
 {
 	// echo "out";
-	header("Location: logout.php");
+	header("Location: http://localhost/TimeTable/Backend/logout.php");
 	exit;
 }
 ?>
