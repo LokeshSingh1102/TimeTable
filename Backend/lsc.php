@@ -50,7 +50,7 @@ if($status==1){
 	echo "
 	<script>
 	alert('".$mssg."');
-	window.location.href='../Frontend/Students/studentIndex.php';
+	window.location.href='../Frontend/Students/studentIndex.html';
 	</script>
 	";
 }
