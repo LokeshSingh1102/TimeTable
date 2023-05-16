@@ -46,8 +46,8 @@ $(document).ready(function () {
         $('#Teacher').val('');
         $('#Subject').val('');
         $('#Classes').val('');
-        $('#Semester').val('');
-        $('#Section').val('');
+        // $('#Semester').val('');
+        // $('#Section').val('');
         fillData()
     })
 })
