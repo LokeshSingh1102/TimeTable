@@ -302,22 +302,22 @@ body{
     animation: animate 3s ease-in-out infinite;
 }
 .tech1 span{
-    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png') no-repeat center center/cover;
+    background: url('../Images/HTML5_logo_and_wordmark.svg.png') no-repeat center center/cover;
 }
 .tech2 span{
-    background: url('https://www.freepnglogos.com/uploads/html5-logo-png/html5-logo-css-logo-png-transparent-svg-vector-bie-supply-9.png') no-repeat center center/cover;
+    background: url('../Images/CSS-logo.png') no-repeat center center/cover;
 }
 .tech3 span{
-    background: url('https://www.freepnglogos.com/uploads/javascript-png/javascript-logo-transparent-logo-javascript-images-3.png') no-repeat center center/cover;
+    background: url('../Images/javascript-logo-transparent.png') no-repeat center center/cover;
 }
 .tech4 span{
-    background: url('https://pngimg.com/uploads/php/php_PNG50.png') no-repeat center center/cover;
+    background: url('../Images/php_logo.png') no-repeat center center/cover;
 }
 .tech5 span{
-    background: url('https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-mysql-logo-png-transparent-svg-vector-bie-supply-2.png') no-repeat center center/cover;
+    background: url('../Images/logo-mysql.png') no-repeat center center/cover;
 }
 .tech6 span{
-    background: url('https://e7.pngegg.com/pngimages/271/958/png-clipart-1st-century-logo-brand-electric-motor-jquery-icon-blue-text.png') no-repeat center center/cover;
+    background: url('../Images/pngegg.png') no-repeat center center/cover;
 }
 @keyframes animate{
     0%,100%{
