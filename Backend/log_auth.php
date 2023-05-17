@@ -18,12 +18,12 @@ if(isset($_SESSION['login_status']) && $_SESSION['login_status']==true)
 			$row=mysqli_fetch_array($qrt);
 		}elseif($noc_s){
 			$row=mysqli_fetch_array($qrs);
-		}//else
-		// {
-		// 	// echo "in";
-		// 	header("Location: logout.php");
-		// 	exit;
-		// }
+		}else
+		{
+			// echo "in";
+			header("Location: logout.php");
+			exit;
+		}
 	
 }else
 {
