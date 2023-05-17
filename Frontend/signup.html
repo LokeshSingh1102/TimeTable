@@ -22,7 +22,7 @@
                         <input type="text" placeholder="Enter your name" name="username" id="username" required />
                     </div>
                     <div class="inputBox">
-                        <input type="text" placeholder="Enter profession" id="profession" name="profession">
+                        <input type="text" placeholder="Enter profession" id="profession" class="profession" name="profession">
                     </div>
                     <div class="inputBox">
                         <input type="email" placeholder="Enter your email" id="email" name="email" required />
@@ -86,6 +86,13 @@
         }
     }
     function validate(){
+        let val = document.querySelector('.profession').value.toLowerCase().trim();
+        if(val === 'teacher' || val === 'student'){
+            alert("The profession is valid");
+        }else{
+            alert("The profession can only be 'teacher' or 'student'");
+            return false;
+        }
         const pass1 = document.querySelector('.password');
         const pass2 = document.querySelector('.password2');
         if(pass1.value == pass2.value){
