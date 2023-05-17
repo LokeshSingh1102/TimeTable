@@ -183,19 +183,42 @@ body{
 .inputBox input::placeholder{
     color: #fff;
 }
-.inputBox input[type="submit"]{
+.inputBox button[type="submit"]{
     background: #fff;
     color: #666;
-    max-width: 100px;
+    width: 75%;
     cursor: pointer;
     margin-bottom: 20px;
     font-weight: 600;
+    transition: 0.5s;
+}
+.content:hover .inputBox button[type="submit"]{
+    width: 85%;
+}
+.inputBox input[type="password"]{
+    margin-right: 5px;
+    max-width: 265px;
 }
 .forget{
-    margin-top: 5px;
     color: #fff;
+}
+.forget1{
+    margin-top: 4.5em;
 }
 .forget a{
     color: #fff;
     font-weight: 600;
+}
+.inputBox .btn{
+    position: absolute;
+}
+.btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    color: white; 
+    padding: 12px 14px;
+    font-size: 16px; 
+    cursor: pointer; 
 }

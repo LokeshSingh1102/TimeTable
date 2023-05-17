@@ -5,178 +5,198 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Condensed&display=swap');
-
-
-
-        body {
-            background: #131316;
-            color: rgb(197, 183, 183);
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-
-        }
-
-        .p1 {
-            padding-left: 42%;
-            padding-top: 20%;
-            padding-bottom: 20%;
-            /* height: 1.2vh;
-            padding-left: 42%;
-            padding-top: 20%;
-            padding-bottom: 20%; */
-            /* background-color: white;
-            color: black; */
-        }
-
-        a {
-            text-decoration: none;
-            color: #ffffff;
-        }
-
-        /* a:hover{
-        color: #111;
-       } */
-        button {
-            padding: 0.8em 1.8em;
-            border: 2px solid #ffffff;
-            position: relative;
-            overflow: hidden;
-            background-color: transparent;
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 16px;
-            transition: .3s;
-            z-index: 1;
-            font-family: inherit;
-            color: #ffffff;
-        }
-
-        button::before {
-            content: '';
-            width: 0;
-            height: 300%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(45deg);
-            background: #ffffff;
-            transition: .5s ease;
-            display: block;
-            z-index: -1;
-        }
-
-        button:hover::before {
-            width: 105%;
-        }
-
-        button:hover {
-            color: #111;
-        }
-
-        h2 {
-            color: white;
-            padding-left: 10%;
-        }
-
-        nav {
-            background-color: white;
-            height: 50px;
-            position: fixed;
-            width: 100%;
-            z-index: 9999;
-        }
-
-        nav p {
-            padding-left: 5%;
-            font-style: bold;
-            font-size: 20px;
-            color: #111;
-        }
-
-        section {
-            display: grid;
-            place-items: center;
-            align-content: center;
-            min-height: 100vh;
-            font-size: 30px;
-            line-height: 18px;
-        }
-
-        .two {
-            background-color: #f7f8fc;
-        }
-
-        .four img {
-            float: left;
-            display: flex;
-            padding-bottom: 1%;
-        }
-
-        .four a {
-            color: #47aaf1;
-            padding-left: 1%;
-
-        }
-
-        /* .four p {
-            color: #47aaf1;
-            line-height: 1px;
-            padding-left: 3%;
-        } */
-
-        .textbox {
-            padding-top: 0.5px;
-        }
-
-
-        footer {
-            /* background-color: transparent;
-            padding-left: 1%; */
-            background-color: transparent;
-            padding-left: 1%;
-            overflow: hidden;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>UniRoutine Wizard</title>
+    <link rel="stylesheet" href="CSS/homepage.css">
 </head>
 
 <body>
-    <nav>
-        <p>Routine Maker</p>
-    </nav>
-
-    <section class="three">
-        <p>Having Difficulty Creating, Editing and Managing so many Time Tables in your Institute? </p>
-        <p>We are here to make your life easy.</p>
-        <p>Let's Begin!!!</p>
-    </section>
-
-    <section class="two">
-        <img src="RoutineMaker.jpeg">
-    </section>
-
-    <div class="p1">
-        <h2>You're a?</h2>
-        <a href="teachersLoginPage.html"><button>Teacher</button></a>
-        <a href="studentsLoginPage.html"><button>Student</button></a>
-    </div>
-    <footer>
-        <div class="four">
-            <img src="logo.png" height="40px">
-            <!-- <div class="textbox">
-                <p>Dinabandhu Andrews Institute
-                <p>of Technology and management</p>
-                </p>
-            </div> -->
-            <a>Dinabandhu Andrews Institute</a><br> <a>of Technology and management</a>
+    <div class="heading">
+        <!-- <div class="box"> -->
+        <!-- <div class="lightbar"></div> -->
+        <!-- <div class="topLayer"></div> -->
+        <div class="box">
+            <h2>UniRoutine Wizard</h2>
         </div>
-    </footer>
+        <!-- </div> -->
+    </div>
+    <div class="section1">
+        <div class="container">
+            <div class="clip clip1">
+                <div class="content">
+                    <p>Having Difficulty Creating, Editing and Managing so many Time Tables in your Institute?</p>
+                    <p>We are here to make your life easy.</p>
+                    <p>Let's Begin!!!</p>
+                </div>
+            </div>
+            <div class="clip clip2">
+                <div class="content">
+                    <h1>I am a teacher</h1>
+                    <a href="teachersLoginPage.html"><button>Teacher</button></a>
+                </div>
+            </div>
+            <div class="clip clip3">
+                <div class="content">
+                    <h1>I am a student</h1>
+                    <a href="studentsLoginPage.html"><button>Student</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section2">
+        <h1>About UniRoutine Wizard</h1>
+        <div class="about">
+            <p>The process of creating routines for different courses in colleges poses a significant challenge for
+                academic
+                institutions. Managing multiple courses and faculty members while ensuring efficient resource allocation
+                requires careful planning and coordination.
+            <p>
+                Doing all these tasks manually is nearly impossible, so to address these challenges, colleges can use
+                our
+                intelligent scheduling software, UniRoutine Wizard.
+            </p>
+            <p>
+                UniRoutine Wizard is the ultimate solution for colleges and universities seeking to eliminate the burden
+                of
+                having to create and manage multiple routines for different courses. By harnessing the power of advanced
+                algorithms and intelligent automation, the software empowers institutions, the software empowers
+                institutions to optimize, increase student satisfaction, and enhance operational efficiency.
+            </p>
+            </p>
+        </div>
+    </div>
+    <div class="section3">
+        <h1>Technology Used</h1>
+        <div id="tech">
+            <div class="techBox tech1">
+                <span></span>
+                <div class="techImage">
+                    <!-- <img src="https://w7.pngwing.com/pngs/201/90/png-transparent-logo-html-html5.png" alt=""> -->
+                </div>
+                <div class="techContent">
+                    <h3>HTML</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores alias sequi maiores non
+                        repellendus expedita, ad modi illum maxime.</p>
+                </div>
+            </div>
+            <div class="techBox tech2">
+                <span></span>
+                <div class="techImage">
+                    <!-- <img src="https://w7.pngwing.com/pngs/696/424/png-transparent-logo-css-css3-thumbnail.png" alt=""> -->
+                </div>
+                <div class="techContent">
+                    <h3>CSS</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores alias sequi maiores non
+                        repellendus expedita, ad modi ex architecto illum maxime.</p>
+                </div>
+            </div>
+            <div class="techBox tech3">
+                <span></span>
+                <div class="techImage">
+                    <!-- <img src="https://w7.pngwing.com/pngs/640/199/png-transparent-javascript-logo-html-javascript-logo-angle-text-rectangle-thumbnail.png"
+                        alt=""> -->
+                </div>
+                <div class="techContent">
+                    <h3>JavaScript</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores alias sequi maiores non
+                        repellendus expedita, ad modi luptates ex architecto illum maxime.</p>
+                </div>
+            </div>
+            <div class="techBox tech4">
+                <span></span>
+                <div class="techImage">
+                    <!-- <img src="https://w7.pngwing.com/pngs/270/145/png-transparent-php-web-development-javascript-logo-c-others-blue-text-trademark.png"alt=""> -->
+                </div>
+                <div class="techContent">
+                    <h3>PHP</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores alias sequi maiores non
+                        repellendus expedita, ad modi blanditiis m maxime.</p>
+                </div>
+            </div>
+            <div class="techBox tech5">
+                <span></span>
+                <div class="techImage">
+                    <!-- <img src="https://w7.pngwing.com/pngs/270/145/png-transparent-php-web-development-javascript-logo-c-others-blue-text-trademark.png"alt=""> -->
+                </div>
+                <div class="techContent">
+                    <h3>MySql</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores alias sequi maiores non
+                        repellendus expedita, ad modi blanditiis m maxime.</p>
+                </div>
+            </div>
+            <div class="techBox tech6">
+                <span></span>
+                <div class="techImage">
+                    <!-- <img src="https://w7.pngwing.com/pngs/270/145/png-transparent-php-web-development-javascript-logo-c-others-blue-text-trademark.png"alt=""> -->
+                </div>
+                <div class="techContent">
+                    <h3>Jquery</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores alias sequi maiores non
+                        repellendus expedita, ad modi blanditiis m maxime.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section4">
+        <h1>Members</h1>
+        <div class="team">
+            <div class="members member1">
+                <div class="img">
+                </div>
+                <div class="content">
+                    <h3>Shreyash Mulate</h3>
+                    <p>Backend, Frontend, Tester</p>
+                </div>
+            </div>
+            <div class="members member2">
+                <div class="img">
+                </div>
+                <div class="content">
+                    <h3>Lokesh Singh Bora</h3>
+                    <p>Backend, Frontend, Tester</p>
+                </div>
+            </div>
+            <div class="members member3">
+                <div class="img">
+                </div>
+                <div class="content">
+                    <h3>Suvojeet Haldar</h3>
+                    <p>Backend, Tester</p>
+                </div>
+            </div>
+            <div class="members member4">
+                <div class="img">
+                </div>
+                <div class="content">
+                    <h3>Sucharita Sinha Roy</h3>
+                    <p>Frontend</p>
+                </div>
+            </div>
+            <div class="members member5">
+                <div class="img">
+                </div>
+                <div class="content">
+                    <h3>Suryanarayan Choudhary</h3>
+                    <p>Frontend</p>
+                </div>
+            </div>
+            <div class="members member6">
+                <div class="img">
+                </div>
+                <div class="content">
+                    <h3>Manish Singh</h3>
+                    <p>Frontend, Documentation</p>
+                </div>
+            </div>
+            <div class="members member7">
+                <div class="img">
+                </div>
+                <div class="content">
+                    <h3>Lihaj Islam</h3>
+                    <p>Documentation</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

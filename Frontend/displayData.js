@@ -148,7 +148,7 @@ function main() {
         });
 }
 main()
-$(".save").click(function () {
+$("#btn2").click(function () {
     for (let i = 0; i < saveTeacher.length; i++) {
         $.ajax({
             type: 'POST',
