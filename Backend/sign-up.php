@@ -13,7 +13,7 @@ $dttm=date('Y-m-d H:i:s');
 $status=0;
 $mssg="";
 
-if($profession=="Teacher"){
+if($profession=="Teacher" or $profession=="teacher"){
         $sqll="SELECT id FROM teacher_data where email='$email'";
         $qr1=mysqli_query($conn,$sqll) or die(mysqli_error($conn));
         $noc=mysqli_num_rows($qr1);
