@@ -5,8 +5,8 @@ if(isset($_SESSION['login_status']) && $_SESSION['login_status']==true)
 {
 	$id = $_SESSION['login_id'];
 	$login_token=$_SESSION['login_token'];
-	$sqlt="SELECT * FROM teacher_data WHERE id='$id' AND login_token='$login_token'";
-	$sqls="SELECT * FROM student WHERE id='$id' AND login_token='$login_token'";
+	$sqlt="SELECT * FROM teacher_data WHERE uid='$id' AND login_token='$login_token'";
+	$sqls="SELECT * FROM student WHERE uid='$id' AND login_token='$login_token'";
 	
 	$qrt=mysqli_query($conn,$sqlt) or die(mysqli_error($conn));
 	$qrs=mysqli_query($conn,$sqls) or die(mysqli_error($conn));
@@ -18,12 +18,12 @@ if(isset($_SESSION['login_status']) && $_SESSION['login_status']==true)
 			$row=mysqli_fetch_array($qrt);
 		}elseif($noc_s){
 			$row=mysqli_fetch_array($qrs);
-		}//else
-		// {
-		// 	// echo "in";
-		// 	header("Location: logout.php");
-		// 	exit;
-		// }
+		}else
+		{
+			// echo "in";
+			header("Location: logout.php");
+			exit;
+		}
 	
 }else
 {
