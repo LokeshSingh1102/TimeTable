@@ -97,14 +97,14 @@ if($status==1){
     echo "
     <script>
     alert('".$mssg."');
-    window.location.href='../Frontend/Teachers/teacherIndex.php';
+    window.location.href='../Frontend/Teachers/teacherIndex.html';
     </script>
     ";
 }elseif($status==2){
     echo "
     <script>
     alert('".$mssg."');
-    window.location.href='../Frontend/Students/studentIndex.php';
+    window.location.href='../Frontend/Students/studentIndex.html';
     </script>
     ";
 }
