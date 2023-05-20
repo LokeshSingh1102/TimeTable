@@ -15,11 +15,16 @@ $status=0;
 $mssg="";
 
 if($profession=="Teacher" or $profession=="teacher"){
-        $sqll="SELECT id FROM teacher_data where email='$email'";
-        $qr1=mysqli_query($conn,$sqll) or die(mysqli_error($conn));
-        $noc=mysqli_num_rows($qr1);
+        $sqle="SELECT id FROM teacher_data where email='$email'";
+        $qre=mysqli_query($conn,$sqle) or die(mysqli_error($conn));
+        $noce=mysqli_num_rows($qre);
         //email  Already Used Or Not Checking
-        if(!$noc){
+
+        $sqlu="SELECT id FROM teacher_data where uid='$uid'";
+        $qru=mysqli_query($conn,$sqlu) or die(mysqli_error($conn));
+        $nocu=mysqli_num_rows($qru);
+        //uid  Already Used Or Not Checking
+        if($noce==0 and $nocu==0){
             
                     
                     // $uid = abs( crc32( uniqid() ) ); //1551585806
@@ -41,14 +46,24 @@ if($profession=="Teacher" or $profession=="teacher"){
                     }
                 }else
                 {
-                    $mssg='email already exists';
+                    if($noce!=0){
+                        $mssg='Email already exists';
+                    }
+                    else{
+                        $mssg='Account already exists';
+                    }
                 }
             }else{
-                $sqll="SELECT id FROM student where email='$email'";
-                $qr1=mysqli_query($conn,$sqll) or die(mysqli_error($conn));
-                $noc=mysqli_num_rows($qr1);
+                $sqle="SELECT id FROM student where email='$email'";
+                $qre=mysqli_query($conn,$sqle) or die(mysqli_error($conn));
+                $noce=mysqli_num_rows($qre);
                 //email  Already Used Or Not Checking
-                if(!$noc){
+
+                $sqlu="SELECT id FROM student where uid='$uid'";
+                $qru=mysqli_query($conn,$sqlu) or die(mysqli_error($conn));
+                $nocu=mysqli_num_rows($qru);
+                //uid  Already Used Or Not Checking
+                if($noce==0 and $nocu==0){
                     
                             
                             // $uid = abs( crc32( uniqid() ) ); //1551585806
@@ -68,7 +83,12 @@ if($profession=="Teacher" or $profession=="teacher"){
                             }
                         }else
                         {
-                            $mssg='email already exists';
+                            if($noce!=0){
+                                $mssg='Email already exists';
+                            }
+                            else{
+                                $mssg='Account already exists';
+                            }
                         }
             }
         
