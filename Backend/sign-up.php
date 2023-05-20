@@ -3,7 +3,7 @@ include('config.php');
 // echo '<pre>';
 // print_r($_POST);
 // echo '</pre>';
-$name=$_POST['username'];
+// $name=$_POST['username'];
 $profession=$_POST['profession'];
 $email=$_POST['email'];
 $password=$_POST['password'];
@@ -25,8 +25,8 @@ if($profession=="Teacher" or $profession=="teacher"){
                     $token=md5(rand(0,9999));
                     //Insert data
                     
-                    $sql= "INSERT INTO `teacher_data` (`name`,`email`,`signup_dttm`,`uid`,`password`,`login_token`,`login_dttm`)
-                    VALUES ('$name', '$email', '$dttm','$uid','$password','$token','$dttm')";
+                    $sql= "INSERT INTO `teacher_data` (`email`,`signup_dttm`,`uid`,`password`,`login_token`,`login_dttm`)
+                    VALUES ('$email', '$dttm','$uid','$password','$token','$dttm')";
                     $qrr=mysqli_query($conn,$sql) or die(mysqli_error($conn));
                     
                     if($qrr){
@@ -53,8 +53,8 @@ if($profession=="Teacher" or $profession=="teacher"){
                             $uid = abs( crc32( uniqid() ) ); //1551585806
                             $token=md5(rand(0,9999));
                             //Insert data
-                            $sql= "INSERT INTO `student` (`name`,`email`,`signup_dttm`,`uid`,`password`,`login_token`,`login_dttm`)
-                            VALUES ('$name', '$email', '$dttm','$uid','$password','$token','$dttm')";
+                            $sql= "INSERT INTO `student` (`email`,`signup_dttm`,`uid`,`password`,`login_token`,`login_dttm`)
+                            VALUES ('$email', '$dttm','$uid','$password','$token','$dttm')";
                             $qrr=mysqli_query($conn,$sql) or die(mysqli_error($conn));
                             if($qrr){
                                 $_SESSION["login_token"]=$token;
