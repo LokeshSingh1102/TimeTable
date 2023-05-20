@@ -166,18 +166,19 @@ nav {
 }
 
 .button {
-  position: relative;
-  width: 150px;
-  height: 40px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  border: 1px solid #fff5;
-  background-color: #fff5;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
+    margin: 5px;
+    margin-right: -9%;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #fff5;
+    background-color: #fff5;
+    overflow: hidden;
+    border-radius: 10px;
+  }
 .button,
 .button__icon,
 .button__text {
