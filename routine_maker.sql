@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2023 at 09:59 AM
+-- Generation Time: May 22, 2023 at 06:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -65,7 +65,7 @@ CREATE TABLE `teacher_data` (
 --
 
 INSERT INTO `teacher_data` (`id`, `email`, `signup_dttm`, `uid`, `password`, `login_token`, `login_dttm`) VALUES
-(17, 'suvojeethaldar4@gmail.com', '2023-05-19 14:31:54', 1402678636, 'suvo', '9fe4e15b3924b1a78221734d0c063ae7', '2023-05-19 14:32:45');
+(17, 'suvojeethaldar4@gmail.com', '2023-05-19 14:31:54', 15401220016, 'suvo', 'b2efd0611feada40106f0cc9e3fb74b1', '2023-05-19 14:32:45');
 
 --
 -- Indexes for dumped tables
