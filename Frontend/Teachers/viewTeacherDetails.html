@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniRoutine Wizard</title>
+    <link rel="stylesheet" href="../CSS/streamSemSec.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- <div class="loader"></div> -->
+
+    <header>
+        <div class="logo">
+            <h2>Routine Maker</h2>
+        </div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <div class="logo">
+
+            </div>
+            <ul>
+                <li>
+                    <a href="./viewStreamSemSec.html">View</a>
+                </li>
+
+                <li>
+                    <a href="../../Backend/viewCourseSub.php">Course & Subjects</a>
+                </li>
+
+                <li>
+                    <a href="../../Backend/logout.php">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <form action="../viewTeacherTable.html" method="post" onsubmit="getFormData()">
+        <h3>Enter the name of which teacher you want to view the table of:</h3><br>
+        <p>
+            Teacher Name:*<br />
+            <input type="text" id="dept" name="dept" required />
+        </p>
+        <div class="center">
+            <button id="btn">Submit</button>
+        </div><br>
+    </form>
+    <script>
+        function getFormData() {
+            var teacher = $("input[type=text][name=dept]").val();
+            sessionStorage.setItem("Teacher", teacher);
+
+        }
+    </script>
+</body>
+</html>
