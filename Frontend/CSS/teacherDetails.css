@@ -30,9 +30,14 @@ header {
     margin: 0 auto;
 }
 
-.logo {
-    width: 200px;
-    margin-top: 8px;
+.logo{
+    margin: 10px;
+}
+.logo a {
+    text-decoration: none;
+    color: #212526;
+    font-size: 1.7rem;
+    font-weight: bold;
 }
 
 nav .logo {
