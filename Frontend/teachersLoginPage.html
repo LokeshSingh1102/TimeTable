@@ -17,20 +17,21 @@
     <div class="content">
 
       <form method="post" action="../Backend/ltc.php" onsubmit="return validate();">
-        <h2>Login Form</h2>
+        <h2>Teacher Login</h2>
         <div class="inputBox">
-          <input type="number" placeholder="Enter your user ID" name="uid" id="uid" required />
+          <input type="number" placeholder="User ID" name="uid" id="uid" required />
         </div>
         <div class="inputBox">
-          <input type="password" class="password password1" name="password" id="password" placeholder=" New password"
+          <input type="password" class="password password1" name="password" id="password" placeholder=" Password"
               required />
           <button class="btn" type="button" onclick="showHide(); return false;">
               <i class="fa-regular fa-eye icon"></i>
           </button>
       </div>
       <div class="inputBox">
-        <button class="btn submit" type="submit">Sign In <i class="fa-solid fa-right-to-bracket icon"></i></button>
+        <button class="btn submit" type="submit">Log in <i class="fa-solid fa-right-to-bracket icon"></i></button>
       </div>
+        <p class="forget forget1">Forgotten password? <a href="../Backend/password-reset.php?p=t">Click here</a></p>
         <p class="forget forget1">Don't have an account? <a href="signup.html">Click here</a></p>
         <p class="forget">Not a Teacher? <a href="homepage.html">Previous Page</a></p>
       </form>

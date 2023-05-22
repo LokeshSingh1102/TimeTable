@@ -19,7 +19,7 @@ if($nr){
 		$token=md5(rand(0,9999));
 		$_SESSION["login_token"]=$token;
 		$_SESSION["login_status"]=true;
-		$_SESSION["login_id"]=$row["id"];
+		$_SESSION["login_id"]=$row["uid"];
 
 		$qry='';
 		if(isset($_POST['remember']))
