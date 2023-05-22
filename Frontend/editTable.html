@@ -15,7 +15,7 @@
 
     <header>
         <div class="logo">
-            <h2>Routine Maker</h2>
+            <a href="Teachers/teacherIndex.html">Routine Maker</a>
         </div>
         <input type="checkbox" id="nav_check" hidden>
         <nav>
@@ -65,10 +65,14 @@
         <p>
             Period:* <br /><input type="number" id="Period" name="period" required />
         </p>
-        <input type="radio" id="temporary" name="choose" value="temporary" required>
-        <label for="temporary">temporary</label><br>
-        <input type="radio" id="permanent" name="choose" value="permanent" required>
-        <label for="permanent">permanent</label><br>
+        <!-- <label for="temporary" class="tempData">temporary</label> -->
+        <p>
+            Temporary : <input type="radio" id="temporary" class="tempData" name="choose" value="temporary" required>
+        </p>
+        <p>
+            Permanent:  <input type="radio" id="permanent" class="tempData" name="choose" value="permanent" required>
+        </p>
+        <!-- <label for="permanent" class="tempData">permanent</label> -->
         <br>
         <div class="center">
             <button id="btn">Submit</button>

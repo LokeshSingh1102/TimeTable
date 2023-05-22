@@ -22,11 +22,11 @@ if($nr){
     if(isset($_COOKIE["tempTime"])){
         while($row = $result->fetch_assoc()){
             if($row['tempTeacher']==""){
-                $arr = ["Subject"=>$row['subject'], "Period"=>$row['period']];
+                $arr = ["Subject"=>$row['subject'],"Semester"=>$row['semester'],"Department"=>$row['dept'], "Period"=>$row['period'],"Section"=>$row['section']];
                 $data[$i] = $arr;
             }
             else{
-                $arr = ["Subject"=>$row['tempSubject'], "Period"=>$row['period']];
+                $arr = ["Subject"=>$row['subject'],"Semester"=>$row['semester'],"Department"=>$row['dept'], "Period"=>$row['period'],"Section"=>$row['section']];
                 $data[$i] = $arr;  
             }
             $i = $i + 1;
@@ -36,7 +36,7 @@ if($nr){
         $sql = "UPDATE $day SET tempTeacher=Null, tempSubject=Null";
         mysqli_query($conn, $sql);
             while($row = $result->fetch_assoc()){
-                $arr = ["Subject"=>$row['subject'], "Period"=>$row['period']];
+                $arr = ["Subject"=>$row['subject'],"Semester"=>$row['semester'],"Department"=>$row['dept'], "Period"=>$row['period'],"Section"=>$row['section']];
                 $data[$i] = $arr;
                 $i = $i + 1;
             }        
