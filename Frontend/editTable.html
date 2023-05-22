@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/streamSemSec.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="loader"></div>
+
+    <header>
+        <div class="logo">
+            <h2>Routine Maker</h2>
+        </div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <div class="logo">
+
+            </div>
+            <ul>
+                <li>
+                    <a href="./viewStreamSemSec.html">View</a>
+                </li>
+
+                <li>
+                    <a href="../../Backend/viewCourseSub.php">Course & Subjects</a>
+                </li>
+
+                <li>
+                    <a href="../../Backend/logout.php">Logout</a>
+                </li>
+
+
+
+            </ul>
+
+        </nav>
+
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+    <form id="myForm" method="post" action="">
+        <p>
+            Current Teacher Name:*<br />
+            <input type="text" id="Teacher" name="Teacher" required />
+        </p>
+        <p>
+            New Teacher Name:*<br />
+            <input type="text" id="newTeacher" name="newTeacher" required />
+        </p>
+        <p>
+            Subject Name:* <br /><input type="text" id="Subject" required />
+        </p>
+        <p>
+            Day :* <br /><input type="text" id="day" name="day" required />
+        </p>
+        <p>
+            Period:* <br /><input type="number" id="Period" name="period" required />
+        </p>
+        <input type="radio" id="temporary" name="choose" value="temporary" required>
+        <label for="temporary">temporary</label><br>
+        <input type="radio" id="permanent" name="choose" value="permanent" required>
+        <label for="permanent">permanent</label><br>
+        <br>
+        <div class="center">
+            <button id="btn">Submit</button>
+        </div><br>
+
+    </form>
+    <script>
+        window.addEventListener("load", () => {
+            let loader = document.querySelector(".loader")
+            loader.classList.add("loader-hidden")
+
+            loader.addEventListener("transitionend", () => {
+                document.querySelector(".loader").style.display = "none";
+            })
+        })
+
+        $("#myForm").submit((e) => {
+            e.preventDefault();
+            let choose = document.getElementsByName("choose");
+            let selected;
+            for (let i = 0; i < choose.length; i++) {
+                if (choose[i].checked) {
+                    selected = choose[i].value;
+                    console.log(selected);
+                }
+            }
+            $.ajax({
+                type: "POST",
+                url: 'http://localhost/TimeTable/Backend/editData.php',
+                data: {
+                    Teacher: document.getElementById("Teacher").value,
+                    newTeacher: document.getElementById("newTeacher").value,
+                    Subject: document.getElementById("Subject").value,
+                    Day: document.getElementById("day").value,
+                    Period: document.getElementById("Period").value,
+                    // Dept: sessionStorage.getItem("Department"),
+                    // Semester: sessionStorage.getItem("Semester"),
+                    // Section: sessionStorage.getItem("Section"),
+                    select: selected
+                },
+                success: function (data) {
+                    // if (data == "successful" || data == "not found") {
+                    //     alert(data)
+                    // }
+                    alert(data)
+                    if (data == "successful") {
+                        document.getElementById("Teacher").value = ""
+                        document.getElementById("newTeacher").value = ""
+                        document.getElementById("Subject").value = ""
+                        document.getElementById("day").value = ""
+                        document.getElementById("Period").value = ""
+                        document.getElementById("temporary").checked = false
+                        document.getElementById("permanent").checked = false
+                    }
+                }
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

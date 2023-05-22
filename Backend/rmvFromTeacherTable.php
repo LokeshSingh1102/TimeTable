@@ -22,6 +22,11 @@ include('config.php');
 // echo json_encode($data);
 $del = "DELETE FROM teacher";
 $qr2 = mysqli_query($conn,$del);
+
+    // if(!isset($_COOKIE["tempTime"])){
+    //     $sql = "UPDATE monday SET tempTeacher=Null, tempSubject=Null";
+    //     mysqli_query($conn, $sql);
+    // }
 mysqli_close($conn);
 
 ?>

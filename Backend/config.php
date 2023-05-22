@@ -27,5 +27,7 @@ if (!$conn) {
       }
       return $ret;
   }
-  
+//   $sql = "UPDATE monday SET tempTeacher=Null, tempSubject=Null";
+//   mysqli_query($conn, $sql);
+
 ?>
