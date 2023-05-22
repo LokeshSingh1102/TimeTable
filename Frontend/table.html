@@ -155,12 +155,17 @@
         })
         let i = 0;
         function toSave() {
-            i++;
+            alert("Table Saved")
+            document.querySelector("#btn2").style.display = "none";
+            // i++;
 
-            if (i != 0) {
-                // document.querySelector(".save").disabled = true;
-                document.querySelector(".save").classList.add("disable-link")
-            }
+            // if (i != 0) {
+            //     // document.querySelector(".save").disabled = true;
+            //     // document.querySelector("#btn2").classList.add("disable-link")
+
+            //     document.querySelector("#btn2").style.display = "none";
+
+            // }
 
         }
     </script>
