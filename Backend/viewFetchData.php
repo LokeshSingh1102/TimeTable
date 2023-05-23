@@ -26,7 +26,7 @@ if($nr){
                 $data[$i] = $arr;
             }
             else{
-                $arr = ["Subject"=>$row['subject'],"Semester"=>$row['semester'],"Department"=>$row['dept'], "Period"=>$row['period'],"Section"=>$row['section']];
+                $arr = ["Subject"=>$row['tempSubject'],"Semester"=>$row['semester'],"Department"=>$row['dept'], "Period"=>$row['period'],"Section"=>$row['section']];
                 $data[$i] = $arr;  
             }
             $i = $i + 1;
