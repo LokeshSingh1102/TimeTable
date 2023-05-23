@@ -1,3 +1,8 @@
+<?php
+include("../Backend/config.php");
+$p=$_GET['p'];
+// $page_title="Password Reset Form";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +10,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teachers Login</title>
+  <title>Reset Password</title>
   <link rel="stylesheet" href="CSS/teacherLogin.css"></link>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -15,25 +20,25 @@
   <div class="box">
     <span></span>
     <div class="content">
-
-      <form method="post" action="../Backend/ltc.php" onsubmit="return validate();">
-        <h2>Teacher Login</h2>
+    <?php
+                    if(isset($_SESSION['status']))
+                    {
+                        ?>
+                        <div class="alert alert-success">
+                            <h5><?= $_SESSION['status'];?></h5>
+                        </div>
+                        <?php
+                        unset($_SESSION['status']);
+                    }
+                ?>
+      <form method="post" action="../Backend/recover_email_code.php?p=<?php echo $p?>" onsubmit="return validate();">
+        <h2>Reset Password</h2>
         <div class="inputBox">
-          <input type="number" placeholder="User ID" name="uid" id="uid" required />
+          <input type="email" placeholder="Email Address" name="email" id="email" required />
         </div>
-        <div class="inputBox">
-          <input type="password" class="password password1" name="password" id="password" placeholder=" Password"
-              required />
-          <button class="btn" type="button" onclick="showHide(); return false;">
-              <i class="fa-regular fa-eye icon"></i>
-          </button>
-      </div>
       <div class="inputBox">
-        <button class="btn submit" type="submit">Log in <i class="fa-solid fa-right-to-bracket icon"></i></button>
+        <button class="btn submit" type="submit" name="password_reset_link">Send Password Reset Link<i class="fa-solid fa-right-to-bracket icon"></i></button>
       </div>
-        <p class="forget forget1">Forgotten password? <a href="recover_email.php?p=t">Click here</a></p>
-        <p class="forget forget1">Don't have an account? <a href="signup.html">Click here</a></p>
-        <p class="forget">Not a Teacher? <a href="homepage.html">Previous Page</a></p>
       </form>
     </div>
   </div>
