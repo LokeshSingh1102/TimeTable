@@ -15,7 +15,8 @@ day.forEach((element, index) => {
             const cell = Array.from(document.getElementsByClassName(`Tdata${index}`));
             while (i < data.length) {
                 var period = data[i].Period;
-                cell[period - 1].innerHTML = data[i].Subject;
+                cell[period - 1].firstElementChild.innerHTML = data[i].Subject;
+                cell[period - 1].lastElementChild.innerHTML = ` - ${data[i].Department} Sem ${data[i].Semester} ${data[i].Section}`;
                 i = i + 1;
             }
         }

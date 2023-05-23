@@ -136,7 +136,7 @@ nav ul li a:hover {
 
 
 form {
-    height: 400px;
+    height: 514px;
     width: 680px;
     background-color: rgba(255, 255, 255, 0.13);
     position: absolute;
@@ -274,4 +274,17 @@ button:active {
     to {
         transform: rotate(1turn);
     }
+}
+
+#temporary{
+    position: absolute;
+    top: 28.5em;
+    left: -5em;
+    height: 2em;
+}
+#permanent{
+    position: absolute;
+    top: 31.5em;
+    left: -5em;
+    height: 2em;
 }
