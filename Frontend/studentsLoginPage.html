@@ -16,9 +16,9 @@
       <span></span>
       <div class="content">
         <form method="post" action="../Backend/lsc.php" onsubmit="return validate();">
-          <h2>Login Form</h2>
+          <h2>Student Login</h2>
           <div class="inputBox">
-            <input type="number" placeholder="Enter your user ID" name="uid" id="uid" required />
+            <input type="number" placeholder="User ID" name="uid" id="uid" required />
           </div>
           <div class="inputBox">
             <input type="password" class="password" name="password" id="password" placeholder="Password" required />
@@ -26,12 +26,13 @@
               <i class="fa-regular fa-eye icon"></i>
             </button>
           </div>
-          <div class="checkbox">
+          <!-- <div class="checkbox">
             <label><input type="checkbox" name='remember' value='1'> Remember me</label>
-            </div>
+            </div> -->
           <div class="inputBox">
-            <button class="btn submit" type="submit">Sign In <i class="fa-solid fa-right-to-bracket icon"></i></button>
+            <button class="btn submit" type="submit">Log In <i class="fa-solid fa-right-to-bracket icon"></i></button>
           </div>
+          <p class="forget forget1">Forgotten password? <a href="../Frontend/recover_email.php?p=s">Click here</a></p>
           <p class="forget forget1">Don't have an account? <a href="signup.html">Click here</a></p>
           <p class="forget">Not a Student? <a href="homepage.html">Previous Page</a></p>
         </form>
