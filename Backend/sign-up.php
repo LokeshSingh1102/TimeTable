@@ -31,8 +31,8 @@ if($profession=="Teacher" or $profession=="teacher"){
                     $token=md5(rand(0,9999));
                     //Insert data
                     
-                    $sql= "INSERT INTO `teacher_data` (`email`,`signup_dttm`,`password`,`login_token`,`login_dttm`)
-                    VALUES ('$email', '$dttm','$password','$token','$dttm')";
+                    $sql= "INSERT INTO `teacher_data` (`email`,`signup_dttm`,`uid`,`password`,`login_token`,`login_dttm`)
+                    VALUES ('$email', '$dttm','$uid','$password','$token','$dttm')";
                     $qrr=mysqli_query($conn,$sql) or die(mysqli_error($conn));
                     
                     if($qrr){
