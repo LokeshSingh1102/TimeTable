@@ -7,6 +7,8 @@ window.addEventListener("load", () => {
     loader.addEventListener("transitionend", () => {
         document.querySelector(".loader").style.display = "none";
     })
+    let routine = document.querySelector('.routine');
+    routine.innerHTML = `Routine ${sessionStorage.getItem("Department")} ${sessionStorage.getItem("Semester")} ${sessionStorage.getItem("Section")}`;
 })
 
 // let i = 0;
@@ -137,7 +139,7 @@ function main() {
                     }
                 }
                 else {
-                    element.innerHTML = result[matrix[r][c]].Subject;
+                    element.innerHTML = result[matrix[r][c]].Subject + " ( " + result[matrix[r][c]].Teacher + " )";
                     saveTeacher.push({ "teacher": result[matrix[r][c]].Teacher, "subject": result[matrix[r][c]].Subject, "period": c + 1, "d": r })
                     c = (c + 1) % 4;
                     if (c == 0) {

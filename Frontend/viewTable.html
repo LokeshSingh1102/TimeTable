@@ -106,7 +106,7 @@
 
     </main>
     <div id="btns">
-        <button class="button" type="button">
+        <button id="myPrint" class="button" type="button">
             <span class="button__text">Print </span>
             <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
@@ -148,6 +148,9 @@
             loader.addEventListener("transitionend", () => {
                 document.querySelector(".loader").style.display = "none";
             })
+        })
+        document.getElementById("myPrint").addEventListener("click", () => {
+            window.print()
         })
     </script>
 </body>
