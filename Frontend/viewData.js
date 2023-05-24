@@ -1,4 +1,5 @@
-// console.log(cell[4+1-1]);
+let h1 = document.querySelector('h1');
+h1.innerHTML = `Routine ${sessionStorage.getItem("Department")} ${sessionStorage.getItem("Semester")} ${sessionStorage.getItem("Section")}`;
 const day = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 day.forEach((element, index) => {
     $.ajax({
@@ -15,8 +16,7 @@ day.forEach((element, index) => {
             const cell = Array.from(document.getElementsByClassName(`Tdata${index}`));
             while (i < data.length) {
                 var period = data[i].Period;
-                cell[period - 1].firstElementChild.innerHTML = data[i].Subject;
-                cell[period - 1].lastElementChild.innerHTML = ` - ${data[i].Department} Sem ${data[i].Semester} ${data[i].Section}`;
+                cell[period - 1].innerHTML = data[i].Subject;
                 i = i + 1;
             }
         }
