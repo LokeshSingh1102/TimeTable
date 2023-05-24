@@ -4,7 +4,7 @@ include('config.php');
 // print_r($_POST);
 // echo '</pre>';
 // $name=$_POST['username'];
-$uid=$_POST['uid'];
+$uid=$_POST['name'];
 $profession=$_POST['profession'];
 $email=$_POST['email'];
 $password=$_POST['password'];
