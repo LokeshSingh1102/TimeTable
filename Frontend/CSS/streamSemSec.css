@@ -158,6 +158,10 @@ form * {
     border: none;
 }
 
+.viewTeacher{
+    height: 281px;
+}
+
 p {
     display: block;
     margin-top: 10px;
@@ -184,22 +188,6 @@ input {
     color: #212121;
 }
 
-
-
-
-/* .one textarea{
-    display: block;
-    height: 50px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 18px;
-    font-weight: 300;
-  } */
-
-
 button {
     align-items: center;
     margin-top: 10px;
@@ -215,6 +203,10 @@ button {
 
 button:active {
     transform: translateY(4px) translateX(4px);
+}
+
+.btn{
+    margin-top: 32px;
 }
 
 .center {
