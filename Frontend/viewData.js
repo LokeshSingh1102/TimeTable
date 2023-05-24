@@ -1,4 +1,3 @@
-// console.log(cell[4+1-1]);
 const day = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 day.forEach((element, index) => {
     $.ajax({

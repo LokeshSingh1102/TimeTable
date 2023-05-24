@@ -1,5 +1,3 @@
-console.log("first");
-
 window.addEventListener("load", () => {
     const loader = document.querySelector(".loader")
     loader.classList.add("loader-hidden")
@@ -10,17 +8,6 @@ window.addEventListener("load", () => {
     let routine = document.querySelector('.routine');
     routine.innerHTML = `Routine ${sessionStorage.getItem("Department")} ${sessionStorage.getItem("Semester")} ${sessionStorage.getItem("Section")}`;
 })
-
-// let i = 0;
-// function s() {
-//     i++;
-
-//     if (i != 0) {
-//         // document.querySelector(".save").disabled = true;
-//         document.querySelector(".save").classList.add("disable-link")
-//     }
-
-// }
 
 console.log("hello");
 
@@ -38,9 +25,6 @@ const saveTeacher = [];
 const day = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
 async function periodCheck(d, teacherName, period) {
-    // console.log("d", d);
-    // console.log("teacherName", teacherName);
-    // console.log("period", period);
 
     checkPeriod = await $.post("http://localhost/TimeTable/Backend/checkPeriod.php",
         {
@@ -55,9 +39,6 @@ async function periodCheck(d, teacherName, period) {
 function main() {
     fetch('http://localhost/TimeTable/Backend/fetchData.php').then((response) =>
         response.json()).then(async (result) => {
-
-            // console.log(result)
-
             const checkRow = () => {
                 for (let i = 0; i < matrix.length;) {
                     if (1 in matrix[i]) {
@@ -71,7 +52,6 @@ function main() {
             }
 
             let i = 0;
-
             let totalclass = 0;
             let totalTeacher = result.length <= 4 ? result.length : 4;
 
@@ -89,7 +69,6 @@ function main() {
 
                             for (let j = 0; j < matrix[rowNo].length; j++) {
                                 let resu = await periodCheck(rowNo, result[i].Teacher, j + 1)
-                                // console.log("first", resu);
                                 if (matrix[rowNo][j] == -1 && resu === "false") {
                                     matrix[rowNo][j] = i;
                                     colomnNo = j;
@@ -102,18 +81,13 @@ function main() {
                         }
                         else {
                             if (await periodCheck(rowNo, result[i].Teacher, colomnNo + 1) === "false") {
-                                // console.log("second",colomnNo+1);
                                 matrix[rowNo][colomnNo] = i;
-                                // colomnNo = j;
-                                // colomnNo = (colomnNo + 1) % totalTeacher
                                 totalclass--
                             }
                             else {
                                 for (let j = colomnNo + 1; j < matrix[rowNo].length; j++) {
                                     let resu = await periodCheck(rowNo, result[i].Teacher, j + 1)
-                                    // console.log("third", resu);
                                     if (matrix[rowNo][j] == -1 && resu === "false") {
-                                        // console.log("checkingggg",i,j);
                                         matrix[rowNo][j] = i;
                                         colomnNo = j;
                                         totalclass--
@@ -163,12 +137,7 @@ $("#btn2").click(function () {
                 Semester: sessionStorage.getItem("Semester"),
                 Section: sessionStorage.getItem("Section"),
                 Day: day[saveTeacher[i].d]
-            },
-            // success: function (data) {
-            //     $('#output').html(data);
-            // }
+            }
         })
     }
 })
-
-// console.log(saveTeacher)
