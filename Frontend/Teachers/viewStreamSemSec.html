@@ -43,7 +43,6 @@
         </label>
     </header>
 
-    <!-- <form method="post" action="post.html" onsubmit="return validate();"> -->
     <form style="height: 391px;" action="../viewTable.html" method="post" onsubmit="getFormData()">
         <h3>Enter the data of which class you want to view the table of:</h3><br>
         <p>
@@ -68,36 +67,15 @@
             var department = $("input[type=text][name=dept]").val();
             var semester = $("input[type=number][name=semester]").val();
             var section = $("input[type=text][name=section]").val();
-            sessionStorage.setItem("Department", department);
-            sessionStorage.setItem("Semester", semester);
-            sessionStorage.setItem("Section", section);
+            sessionStorage.setItem("teacherDepartment", department);
+            sessionStorage.setItem("teacherSemester", semester);
+            sessionStorage.setItem("teacherSection", section);
             // console.log(stream);
             //   return true;
-
         }
-        // function fillData() {
-        //     const dept = document.getElementById("dept").value
-        //     const semester = document.getElementById("semester").value
-        //     const section = document.getElementById("section").value
-        //     console.log(dept,semester,section);
-        //     if (dept != "" && semester != "" && section != "") {
-        //         document.getElementById("btn").disabled = false
-        //     }
-        //     else {
-        //         document.getElementById("btn").disabled = true
-        //     }
-        // }
+        
         window.addEventListener("load", () => {
-            // if (localStorage.getItem("mode") == "black") {
-            //     document.body.style.background = "black"
-            //     document.body.style.color = "white"
-            //     document.getElementById("modebtn").innerHTML = "Dark Mode";
-            // }
-            // else {
-            //     document.body.style.background = "white";
-            //     document.body.style.color = "black"
-            //     document.getElementById("modebtn").innerHTML = "Light Mode";
-            // }
+            
             let loader = document.querySelector(".loader")
             loader.classList.add("loader-hidden")
 
@@ -105,21 +83,6 @@
                 document.querySelector(".loader").style.display = "none";
             })
         })
-
-        // function changemode() {
-        //     if (document.body.style.background == "white") {
-        //         document.body.style.background = "black"
-        //         document.body.style.color = "white"
-        //         document.getElementById("modebtn").innerHTML = "Dark Mode";
-        //         localStorage.setItem("mode", "black");
-        //     }
-        //     else {
-        //         document.body.style.background = "white"
-        //         document.body.style.color = "black"
-        //         document.getElementById("modebtn").innerHTML = "Light Mode";
-        //         localStorage.setItem("mode", "white");
-        //     }
-        // }
 
     </script>
 </body>

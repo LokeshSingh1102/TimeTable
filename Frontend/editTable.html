@@ -24,7 +24,8 @@
             </div>
             <ul>
                 <li>
-                    <a href="./viewStreamSemSec.html">View</a>
+                    <!-- href="./viewStreamSemSec.html" -->
+                    <a style="cursor: pointer;" id="viewbtn" >View</a>  
                 </li>
 
                 <li>
@@ -87,6 +88,9 @@
             loader.addEventListener("transitionend", () => {
                 document.querySelector(".loader").style.display = "none";
             })
+        })
+        document.getElementById("viewbtn").addEventListener("click",()=>{
+            history.back(-1)
         })
 
         $("#myForm").submit((e) => {

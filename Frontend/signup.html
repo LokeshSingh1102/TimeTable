@@ -16,20 +16,22 @@
         <div class="box">
             <span></span>
             <div class="content">
-                <form method="post" action="http://localhost/TimeTable/Backend/sign-up.php" id="form" onsubmit="return validate();">
+                <form method="post" action="http://localhost/TimeTable/Backend/sign-up.php" id="form"
+                    onsubmit="return validate();">
                     <h2>Sign Up</h2>
                     <div class="inputBox">
                         <input type="number" placeholder="Enter your uid" name="name" id="username" required />
                     </div>
                     <div class="inputBox">
-                        <input type="text" placeholder="Enter profession" id="profession" class="profession" name="profession">
+                        <input type="text" placeholder="Enter profession" id="profession" class="profession"
+                            name="profession">
                     </div>
                     <div class="inputBox">
                         <input type="email" placeholder="Enter your email" id="email" name="email" required />
                     </div>
                     <div class="inputBox">
-                        <input type="password" class="password password1" name="password" id="password" placeholder=" New password"
-                            required />
+                        <input type="password" class="password password1" name="password" id="password"
+                            placeholder=" New password" required />
                         <button class="btn" type="button" onclick="showHide(); return false;">
                             <i class="fa-regular fa-eye icon"></i>
                         </button>
@@ -42,9 +44,11 @@
                         </button>
                     </div>
                     <div class="inputBox">
-                        <button class="btn submit" type="submit">Sign Up <i class="fa-solid fa-right-to-bracket icon"></i></button>
+                        <button class="btn submit" type="submit">Sign Up <i
+                                class="fa-solid fa-right-to-bracket icon"></i></button>
                     </div>
-                    <p class="forget">Already have an account? <a style="cursor: pointer;" onclick="previous()">Go Back</a></p>
+                    <p class="forget">Already have an account? <a style="cursor: pointer;" onclick="previous()">Go
+                            Back</a></p>
 
                 </form>
             </div>
@@ -85,22 +89,39 @@
             password.innerHTML = `<i class="fa-regular fa-eye icon"></i>`;
         }
     }
-    function validate(){
+    function validate() {
+        let uid = document.querySelector('#username')
+        let profession = document.querySelector('#profession')
+        let password = document.querySelector('#password')
+        let repassword = document.querySelector('#re-password')
+        let email = document.querySelector('#email')
+
         let val = document.querySelector('.profession').value.toLowerCase().trim();
-        if(val === 'teacher' || val === 'student'){
+        if (val === 'teacher' || val === 'student') {
             alert("The profession is valid");
-        }else{
+        } else {
             alert("The profession can only be 'teacher' or 'student'");
             return false;
         }
         const pass1 = document.querySelector('.password');
         const pass2 = document.querySelector('.password2');
-        if(pass1.value == pass2.value){
-            return true;
-        }else{
+        if (pass1.value == pass2.value) {
+            if (pass1.value.length >= 8) {
+                uid.value=""
+                profession.value=""
+                password.value=""
+                repassword.value=""
+                email.value=""
+                return true;
+            }
+            else{
+                return false
+            }
+        } else {
             alert("The confirmation password does not match with the given password");
             return false;
         }
+
     }
 </script>
 
