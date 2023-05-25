@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniRoutine Wizard</title>
     <link rel="stylesheet" href="../CSS/streamSemSec.css">
+    <link rel="icon" href="../Images/UniRoutine Wizard.jpeg" type="image/icon type">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
@@ -31,14 +32,14 @@
             </ul>
         </nav>
     </header>
-    <form action="../viewTeacherTable.html" method="post" onsubmit="getFormData()">
+    <form class="viewTeacher" action="../viewTeacherTable.html" method="post" onsubmit="getFormData()">
         <h3>Enter the name of which teacher you want to view the table of:</h3><br>
         <p>
             Teacher Name:*<br />
             <input type="text" id="dept" name="dept" required />
         </p>
         <div class="center">
-            <button id="btn">Submit</button>
+            <button class="btn" id="btn">Submit</button>
         </div><br>
     </form>
     <script>

@@ -463,6 +463,10 @@ body{
 .member5 .content h3{
     font-size: 1.6em;
 }
+.member1 .img{
+    background: url('../Images/Shreyash.jpeg') no-repeat center center/cover;
+    background-position-y: 2px;
+}
 .member3 .img{
     background: url('../Images/Suvojeet.jpeg') no-repeat center center/cover;
 }

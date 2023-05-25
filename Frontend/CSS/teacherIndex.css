@@ -29,10 +29,15 @@ header {
     margin: 0 auto;
 }
 
-.logo{
+.title img{
+    height: 5em;
+    width: 5em;
+}
+
+.title{
     margin: 10px;
 }
-.logo a {
+.title a {
     text-decoration: none;
     color: #212526;
     font-size: 1.7rem;
